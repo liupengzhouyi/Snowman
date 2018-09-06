@@ -12,7 +12,14 @@
         <servlet-name>liupengServlet</servlet-name>
         <url-pattern>/ServletPackage/liupengServlet</url-pattern>
     </servlet-mapping>
-
-
+    
+    <servlet>
+        <servlet-name>GetYourInformationServlet</servlet-name>
+        <servlet-class>ServletPackage.GetYourInformationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetYourInformationServlet</servlet-name>
+        <url-pattern>/ServletPackage/GetYourInformationServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>

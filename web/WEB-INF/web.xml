@@ -22,4 +22,12 @@
         <url-pattern>/ServletPackage/GetYourInformationServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>getYourLoginInformationServlet</servlet-name>
+        <servlet-class>ServletPackage.getYourLoginInformationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getYourLoginInformationServlet</servlet-name>
+        <url-pattern>/ServletPackage/getYourLoginInformationServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

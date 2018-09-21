@@ -9,7 +9,6 @@ public class linkDatabases {
     // JDBC 驱动名及数据库 URL
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://localhost:3306/database_for_java_web";
-
     // 数据库的用户名与密码，需要根据自己的设置
     static final String USERNAME = "root";
     static final String PASSWORD = "lp184126";
@@ -18,8 +17,11 @@ public class linkDatabases {
 
     private Statement statement = null;
 
-    public linkDatabases() throws ClassNotFoundException, SQLException {
+    public linkDatabases() throws ClassNotFoundException {
         Class.forName(JDBC_DRIVER);
+    }
+
+    public void createConnection() throws SQLException {
         connection = DriverManager.getConnection(
                 DB_URL,
                 USERNAME,
@@ -27,11 +29,24 @@ public class linkDatabases {
         );
     }
 
-    public Connection getConnection() {
+    public Connection getConnection() throws SQLException {
+        this.createConnection();
         if (connection == null) {
             return null;
         } else {
             return connection;
+        }
+    }
+
+    public void createStatement() throws SQLException {
+        if (this.statement != null) {
+            return;
+        } else {
+            if (this.getConnection() == null) {
+                this.createConnection();
+            } else {
+                this.statement = this.getConnection().createStatement();
+            }
         }
     }
 
@@ -44,13 +59,33 @@ public class linkDatabases {
         return this.statement;
     }
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+    public boolean saveData(String str) throws SQLException {
+        this.createConnection();
+        this.createStatement();
+        if (this.statement == null) {
+            return false;
+        } else {
+            String string = str;
+            //string = "INSERT INTO user (lp_id, lp_name, lp_password) VALUES (1809120006,1234,1234);";
+            this.statement.execute(string);
+            return true;
+        }
+    }
+
+    /*public static void main(String[] args) throws SQLException, ClassNotFoundException {
         linkDatabases linkDatabase = new linkDatabases();
         Connection connection = linkDatabase.getConnection();
         if (connection != null) {
             System.out.print("数据库链接成功！！");
+            String string = "INSERT INTO user (lp_id, lp_name, lp_password) VALUES (1809120007,1234,1234);";
+            boolean ifSave = linkDatabase.saveData(string);
+            if (ifSave) {
+                System.out.print("数据保存成功！");
+            } else {
+                System.out.print("数据没有保存！");
+            }
         } else {
             System.out.print("数据库链接失败！");
         }
-    }
+    }*/
 }

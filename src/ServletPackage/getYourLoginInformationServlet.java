@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -30,52 +31,44 @@ public class getYourLoginInformationServlet extends HttpServlet {
     public void setSQL(String lpName, String lpPassword) {
         this.SQL = "INSERT INTO user (lp_id, lp_name, lp_password) " +
                 "VALUES " +
-                "(" + Integer.parseInt(this.getyourID() + "0001") + "," + lpName + "," + lpPassword + ");";
+                "(" + Integer.parseInt(this.getyourID() + "0005") + "," + lpName + "," + lpPassword + ");";
+        System.out.print(this.getSQL());
     }
-
-
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String lpName = request.getParameter("lpName");
         String lpPassword = request.getParameter("lpPassword");
+        System.out.print(lpName + lpPassword);
         this.setSQL(lpName, lpPassword);
+
+        String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+        String DB_URL = "jdbc:mysql://localhost:3306/database_for_java_web";
+        // 数据库的用户名与密码，需要根据自己的设置
+        String USERNAME = "root";
+        String PASSWORD = "lp184126";
+
+        Connection connection = null;
+
+        Statement statement = null;
+
         try {
-            this.getLinkDatabase();
-            this.getConnection();
-            this.getStatement().execute(this.getSQL());
-        } catch (SQLException e) {
-            e.printStackTrace();
+            Class.forName(JDBC_DRIVER);
+            connection = DriverManager.getConnection(
+                    DB_URL,
+                    USERNAME,
+                    PASSWORD
+            );
+            statement = connection.createStatement();
+            statement.execute(this.getSQL());
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        /*PrintWriter out = response.getWriter();
-        out.print(lpName + lpPassword);*/
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
-    }
-
-    public void getLinkDatabase() throws SQLException, ClassNotFoundException {
-        lpLinkDB = new linkDatabases();
-    }
-
-    public Connection getConnection() {
-        connection = lpLinkDB.getConnection();
-        if (connection != null) {
-            return connection;
-        } else {
-            return null;
-        }
-    }
-
-    public Statement getStatement() throws SQLException {
-        statement = connection.createStatement();
-        if (statement.equals(null)) {
-            return null;
-        } else {
-            return statement;
-        }
     }
 
     public String getyourID() {

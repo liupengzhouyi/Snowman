@@ -14,8 +14,8 @@
     <%
         String lpName = request.getParameter("lpName");
         String lpPassword = request.getParameter("lpPassword");
-        PrintWriter out = response.getWriter();
-        out.print(lpName + lpPassword);
     %>
+    <%=lpName%>
+    <%=lpPassword%>
 </body>
 </html>

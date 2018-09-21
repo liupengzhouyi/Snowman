@@ -15,7 +15,7 @@
     登录页面
 </h1>
 <br>
-<form action="/ServletPackage/getYourLoginInformationServlet" method="post">
+<form action="/ServletPackage/testGetServlet" method="post">
     <table>
         <tr>
             <td>用户名：</td>

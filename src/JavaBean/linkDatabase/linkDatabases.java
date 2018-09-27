@@ -32,7 +32,8 @@ public class linkDatabases {
     public Connection getConnection() throws SQLException {
         this.createConnection();
         if (connection == null) {
-            return null;
+            this.createConnection();
+            return connection;
         } else {
             return connection;
         }
@@ -52,9 +53,9 @@ public class linkDatabases {
 
     public Statement getStatement() throws SQLException {
         if (this.connection == null) {
-            this.statement = null;
+            this.createStatement();
         } else {
-            this.statement = this.connection.createStatement();
+            this.statement = this.getConnection().createStatement();
         }
         return this.statement;
     }
@@ -72,9 +73,10 @@ public class linkDatabases {
         }
     }
 
-    /*public static void main(String[] args) throws SQLException, ClassNotFoundException {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         linkDatabases linkDatabase = new linkDatabases();
-        Connection connection = linkDatabase.getConnection();
+        linkDatabase.saveData("insert into lp_sleep_table(lp_id, lp_date, lp_time1) value (2, '2018-09-27', '21:58:32');");
+        /*Connection connection = linkDatabase.getConnection();
         if (connection != null) {
             System.out.print("数据库链接成功！！");
             String string = "INSERT INTO user (lp_id, lp_name, lp_password) VALUES (1809120007,1234,1234);";
@@ -86,6 +88,6 @@ public class linkDatabases {
             }
         } else {
             System.out.print("数据库链接失败！");
-        }
-    }*/
+        }*/
+    }
 }

@@ -8,9 +8,175 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>添加消费记录</title>
 </head>
 <body>
-$END$
+<form action="testgetinformation.jsp" method="post" accept-charset="UTF-8">
+    <%
+        request.setCharacterEncoding("UTF-8");
+    %>
+    <table width="1300" border="0" align="center">
+        <tr>
+            <td style="background-color:#ff7c2b;width:1300px;height:80px;">
+                <h1>
+                    <center>
+                        添加消费记录
+                    </center>
+                </h1>
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color:#9656ee;width:1300px;height:100px;">
+                <center>
+                    <h3>
+                        消费时间：
+                    </h3>
+                    <select name="h">
+                        <%
+                            for(int i=1;i<24;i++) {
+                        %>
+                        <option><%=i%></option>
+                        <%
+                            }
+                        %>
+                    </select>
+                    时&nbsp;
+                    <select name="m">
+                        <%
+                            for(int i=1;i<60;i++) {
+                        %>
+                        <option><%=i%></option>
+                        <%
+                            }
+                        %>
+                    </select>
+                    分&nbsp;
+                    <select name="s">
+                        <%
+                            for(int i=1;i<60;i++) {
+                        %>
+                        <option><%=i%></option>
+                        <%
+                            }
+                        %>
+                    </select>
+                    秒
+                </center>
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color:#9656ee;width:1300px;height:100px;">
+                <center>
+                    <h3>
+                        消费金额
+                        <select name="m">
+                            <%
+                                for(int i=0;i<10;i++) {
+                            %>
+                            <option><%=i%></option>
+                            <%
+                                }
+                            %>
+                        </select>
+                        万&nbsp;
+                        <select name="s">
+                            <%
+                                for(int i=0;i<10;i++) {
+                            %>
+                            <option><%=i%></option>
+                            <%
+                                }
+                            %>
+                        </select>
+                        仟&nbsp;
+                        <select name="s">
+                            <%
+                                for(int i=0;i<10;i++) {
+                            %>
+                            <option><%=i%></option>
+                            <%
+                                }
+                            %>
+                        </select>
+                        佰&nbsp;
+                        <select name="s">
+                            <%
+                                for(int i=0;i<10;i++) {
+                            %>
+                            <option><%=i%></option>
+                            <%
+                                }
+                            %>
+                        </select>
+                        拾&nbsp;
+                        <select name="s">
+                            <%
+                                for(int i=0;i<10;i++) {
+                            %>
+                            <option><%=i%></option>
+                            <%
+                                }
+                            %>
+                        </select>
+                        圆&nbsp;
+                        <select name="s">
+                            <%
+                                for(int i=0;i<10;i++) {
+                            %>
+                            <option><%=i%></option>
+                            <%
+                                }
+                            %>
+                        </select>
+                        角
+                    </h3>
+                </center>
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color:#9656ee;width:1300px;height:100px;">
+                <h3>
+                    消费项目
+                </h3>
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color:#9656ee;width:1300px;height:75px;">
+                <h3>
+                    收支情况
+                    <input type="radio" name="pay" value="a">收入&nbsp;&nbsp;
+                    <input type="radio" name="pay" value="s">支出
+                </h3>
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color:#9656ee;width:1300px;height:175px;">
+                <center>
+                    <h3>
+                        备注
+                    </h3>
+                    <textarea name="addInformation" id="addInformation" cols="15" rows="10"></textarea>"
+                </center>
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color:#9656ee;width:1300px;height:100px;">
+                <center>
+                    <table>
+                        <tr>
+                            <td>
+                                <button type="reset"><p>重置</p></button>
+                            </td>
+                            <td>
+                                <button type="submit"><p>提交</p></button>
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+            </td>
+        </tr>
+    </table>
+</form>
+<%@include file="tail.jsp"%>
 </body>
 </html>

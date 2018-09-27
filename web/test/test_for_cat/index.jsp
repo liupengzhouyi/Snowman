@@ -24,10 +24,10 @@
                         String str2 = new String();
                         String[] strings  = new String[11];
                         // 这个属于硬编码
-                        strings[1] = "设置早上起床时间";
-                        strings[2] = "设置午睡时间";
-                        strings[3] = "设置午睡起床时间";
-                        strings[4] = "设置晚上休息时间";
+                        strings[1] = "打卡早上起床时间";
+                        strings[2] = "打卡午睡时间";
+                        strings[3] = "打卡午睡起床时间";
+                        strings[4] = "打卡晚上休息时间";
                         strings[5] = "记录词汇量";
                         strings[6] = "记录阅读量";
                         strings[7] = "添加博客记录";
@@ -46,7 +46,7 @@
                             <% } %>
                                 <%="align=\"center\""%>
                         </td>
-                        <a href="setyourinformation<%=i%>.jsp"><%=strings[i]%></a>
+                        <a href="setyourinformation<%=i%>.jsp"><h1><%=strings[i]%></h1></a>
                         </td>
                     </tr>
                     <%

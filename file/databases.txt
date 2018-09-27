@@ -1,0 +1,51 @@
+create table lp_sleep_table
+(
+  lp_id int(7) primary key auto_increment ,
+  lp_date date not null ,
+  lp_time1 time ,
+  lp_time2 time ,
+  lp_time3 time ,
+  lp_time4 time
+);
+
+create table lp_learn_english_table
+(
+  lp_id int(7) primary key auto_increment,
+  lp_date date not null ,
+  lp_word int ,
+  lp_reading int
+);
+
+create table lp_blogs_table
+(
+  lp_id int(7) primary key auto_increment ,
+  lp_date date not null ,
+  lp_time int ,
+  lp_name varchar(20) ,
+  lp_url varchar(100)
+);
+
+create table lp_github_table
+(
+  lp_id int(7) primary key auto_increment ,
+  lp_date date not null ,
+  lp_time int ,
+  lp_name varchar(20) ,
+  lp_url varchar(100)
+);
+
+create table lp_consume_table
+(
+  lp_id int(10) primary key auto_increment,
+  lp_datetime datetime not null ,
+  lp_account_class_id int(3) not null ,
+  lp_amount float not null ,
+  lp_payments char not null ,
+  lp_add_text varchar(150)
+);
+
+create table lp_account_class_table
+(
+  lp_id int(3) primary key auto_increment ,
+  lp_name varchar(10) not null
+);

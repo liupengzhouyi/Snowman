@@ -1,4 +1,8 @@
-<%--
+<%@ page import="JavaBean.linkDatabase.linkDatabases" %>
+<%@ page import="JavaBean.linkDatabase.getSQLString" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: liupeng
   Date: 2018/9/27
@@ -11,7 +15,7 @@
     <title>添加消费记录</title>
 </head>
 <body>
-<form action="testgetinformation.jsp" method="post" accept-charset="UTF-8">
+<form action="getyourinformation9.jsp" method="post" accept-charset="UTF-8">
     <%
         request.setCharacterEncoding("UTF-8");
     %>
@@ -30,37 +34,37 @@
                 <center>
                     <h3>
                         消费时间：
+                        <select name="h">
+                            <%
+                                for(int i=1;i<24;i++) {
+                            %>
+                            <option><%=i%></option>
+                            <%
+                                }
+                            %>
+                        </select>
+                        时&nbsp;
+                        <select name="m">
+                            <%
+                                for(int i=1;i<60;i++) {
+                            %>
+                            <option><%=i%></option>
+                            <%
+                                }
+                            %>
+                        </select>
+                        分&nbsp;
+                        <select name="s">
+                            <%
+                                for(int i=1;i<60;i++) {
+                            %>
+                            <option><%=i%></option>
+                            <%
+                                }
+                            %>
+                        </select>
+                        秒
                     </h3>
-                    <select name="h">
-                        <%
-                            for(int i=1;i<24;i++) {
-                        %>
-                        <option><%=i%></option>
-                        <%
-                            }
-                        %>
-                    </select>
-                    时&nbsp;
-                    <select name="m">
-                        <%
-                            for(int i=1;i<60;i++) {
-                        %>
-                        <option><%=i%></option>
-                        <%
-                            }
-                        %>
-                    </select>
-                    分&nbsp;
-                    <select name="s">
-                        <%
-                            for(int i=1;i<60;i++) {
-                        %>
-                        <option><%=i%></option>
-                        <%
-                            }
-                        %>
-                    </select>
-                    秒
                 </center>
             </td>
         </tr>
@@ -69,7 +73,7 @@
                 <center>
                     <h3>
                         消费金额
-                        <select name="m">
+                        <select name="w">
                             <%
                                 for(int i=0;i<10;i++) {
                             %>
@@ -79,7 +83,7 @@
                             %>
                         </select>
                         万&nbsp;
-                        <select name="s">
+                        <select name="q">
                             <%
                                 for(int i=0;i<10;i++) {
                             %>
@@ -89,7 +93,7 @@
                             %>
                         </select>
                         仟&nbsp;
-                        <select name="s">
+                        <select name="b">
                             <%
                                 for(int i=0;i<10;i++) {
                             %>
@@ -109,7 +113,7 @@
                             %>
                         </select>
                         拾&nbsp;
-                        <select name="s">
+                        <select name="y">
                             <%
                                 for(int i=0;i<10;i++) {
                             %>
@@ -119,7 +123,7 @@
                             %>
                         </select>
                         圆&nbsp;
-                        <select name="s">
+                        <select name="j">
                             <%
                                 for(int i=0;i<10;i++) {
                             %>
@@ -135,18 +139,60 @@
         </tr>
         <tr>
             <td style="background-color:#9656ee;width:1300px;height:100px;">
-                <h3>
-                    消费项目
-                </h3>
+                <center>
+                    <h3>
+                        消费项目
+                        <%
+                            linkDatabases lpLinkDatabases = null;
+                            try {
+                                lpLinkDatabases = new linkDatabases();
+                                getSQLString lpGetSQLString = new getSQLString();
+                                lpGetSQLString.setSqlForGetclass();
+                                String sql = lpGetSQLString.getSqlForGetclass();
+                                try {
+                                    ArrayList list = new ArrayList();
+                                    ResultSet resultSet = lpLinkDatabases.getInformation(sql);
+                                    while(resultSet.next()){
+                                        // 通过字段检索
+                                        int id  = resultSet.getInt("lp_id");
+                                        String name = resultSet.getString("lp_name");
+                                        list.add(name);
+                                /*// 输出数据
+                                System.out.print("ID: " + id);
+                                System.out.print(", 站点名称: " + name);
+                                System.out.print("\n");*/
+                                    }
+                        %>
+                        <select name="class">
+                            <%
+                                for(int i=0;i<list.size();i++) {
+                            %>
+                            <option><%=list.get(i).toString()%></option>
+                            <%
+                                }
+                            %>
+                        </select>
+                        <%
+                                } catch (SQLException e) {
+                                    e.printStackTrace();
+                                }
+                            } catch (ClassNotFoundException e) {
+                                e.printStackTrace();
+                            }
+                        %>
+                    </h3>
+                </center>
             </td>
         </tr>
         <tr>
             <td style="background-color:#9656ee;width:1300px;height:75px;">
-                <h3>
-                    收支情况
-                    <input type="radio" name="pay" value="a">收入&nbsp;&nbsp;
-                    <input type="radio" name="pay" value="s">支出
-                </h3>
+                <center>
+                    <h3>
+                        收支情况
+                        <input type="radio" name="pay" value="a">收入&nbsp;&nbsp;
+                        <input type="radio" name="pay" value="s">支出
+                    </h3>
+                </center>
             </td>
         </tr>
         <tr>
@@ -155,7 +201,7 @@
                     <h3>
                         备注
                     </h3>
-                    <textarea name="addInformation" id="addInformation" cols="15" rows="10"></textarea>"
+                    <textarea name="addInformation" id="addInformation" cols="60" rows="10"></textarea>
                 </center>
             </td>
         </tr>

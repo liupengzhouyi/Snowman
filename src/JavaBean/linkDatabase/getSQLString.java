@@ -92,6 +92,14 @@ public class getSQLString {
         this.sql10 = sql;
     }
 
+    public String getSqlForGetclass() {
+        return sqlForGetclass;
+    }
+
+    public void setSqlForGetclass() {
+        this.sqlForGetclass = "select * from lp_account_class_table;";
+    }
+
     private String sql1;
     private String sql2;
     private String sql3;
@@ -101,4 +109,5 @@ public class getSQLString {
     private String sql7;
     private String sql8;
     private String sql10;
+    private String sqlForGetclass;
 }

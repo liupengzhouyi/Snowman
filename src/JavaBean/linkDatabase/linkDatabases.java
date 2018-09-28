@@ -1,9 +1,6 @@
 package JavaBean.linkDatabase;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class linkDatabases {
     // JDBC 驱动名及数据库 URL
@@ -72,6 +69,15 @@ public class linkDatabases {
             return true;
         }
     }
+
+    public ResultSet getInformation(String sql) throws SQLException {
+        this.createConnection();
+        this.createStatement();
+        System.out.print(sql);
+        ResultSet resultSet = this.statement.executeQuery(sql);
+        return resultSet;
+    }
+
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         linkDatabases linkDatabase = new linkDatabases();

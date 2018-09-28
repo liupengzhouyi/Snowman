@@ -10,7 +10,7 @@ public class getSQLString {
         //String string = "insert into lp_sleep_table(lp_id, lp_date, lp_time1) value (3, \'" + date + "\', \'" + time + "\');";
         String string = "insert into lp_sleep_table(lp_date, lp_time1) value (\'" + date + "\', \'" + time + "\');";
         this.sql1 = string;
-        System.out.print(string);
+        // System.out.print(string);
     }
 
     public String getSql2() {
@@ -88,7 +88,7 @@ public class getSQLString {
     public void setSql10(String account_class) {
         //String string = "insert into lp_account_class_table(lp_id, lp_name) value (1, '早餐');";
         String sql = "insert into lp_account_class_table(lp_name) value (\'" + account_class + "\');";
-        System.out.print(sql);
+        // System.out.print(sql);
         this.sql10 = sql;
     }
 
@@ -100,6 +100,17 @@ public class getSQLString {
         this.sqlForGetclass = "select * from lp_account_class_table;";
     }
 
+    public String getSql9() {
+        return sql9;
+    }
+
+    public void setSql9(String datetime, String account_class, String amount, String pay, String addText) {
+        // String sql = "insert into lp_consume_table(lp_id, lp_datetime, lp_account_class_id, lp_amount, lp_payments, lp_add_text) value (1, now(), 1, 21.5, 's', '');";
+        String sql = "insert into lp_consume_table(lp_datetime, lp_account_class_id, lp_amount, lp_payments, lp_add_text) " +
+                "value (\'" + datetime + "\'," + account_class + ", " + amount + ", \'" + pay + "\', \'" + addText + "\');";
+        this.sql9 = sql;
+    }
+
     private String sql1;
     private String sql2;
     private String sql3;
@@ -108,6 +119,7 @@ public class getSQLString {
     private String sql6;
     private String sql7;
     private String sql8;
+    private String sql9;
     private String sql10;
     private String sqlForGetclass;
 }

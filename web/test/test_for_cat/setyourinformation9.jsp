@@ -150,24 +150,22 @@
                                 lpGetSQLString.setSqlForGetclass();
                                 String sql = lpGetSQLString.getSqlForGetclass();
                                 try {
-                                    ArrayList list = new ArrayList();
+                                    ArrayList listName = new ArrayList();
+                                    ArrayList listId = new ArrayList();
                                     ResultSet resultSet = lpLinkDatabases.getInformation(sql);
                                     while(resultSet.next()){
                                         // 通过字段检索
                                         int id  = resultSet.getInt("lp_id");
                                         String name = resultSet.getString("lp_name");
-                                        list.add(name);
-                                /*// 输出数据
-                                System.out.print("ID: " + id);
-                                System.out.print(", 站点名称: " + name);
-                                System.out.print("\n");*/
+                                        listName.add(name);
+                                        listId.add(id);
                                     }
                         %>
-                        <select name="class">
+                        <select name="account_class">
                             <%
-                                for(int i=0;i<list.size();i++) {
+                                for(int i=0;i<listName.size();i++) {
                             %>
-                            <option><%=list.get(i).toString()%></option>
+                            <option value="<%=listId.get(i)%>"><%=listName.get(i).toString()%></option>
                             <%
                                 }
                             %>

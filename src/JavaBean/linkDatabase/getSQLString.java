@@ -111,6 +111,33 @@ public class getSQLString {
         this.sql9 = sql;
     }
 
+    public String getSql_sleep_table() {
+        return sql_sleep_table;
+    }
+
+    public void setSql_sleep_table() {
+        this.sql_sleep_table = "select * from lp_sleep_table;";
+    }
+
+    public String getSqlForWord2_1() {
+        return sqlForWord2_1;
+    }
+
+    public void setSqlForWord2_1(String name, String phone, String email, String title, String content, String time ) {
+        String sql = "insert into guestbook (name, phone, email, title, content, time) value " +
+                "(\'" + name + "\', \'" + phone + "\', \'" + email + "\', \'" + title + "\', \'" + content + "\', \'" + time + "\');";
+        this.sqlForWord2_1 = sql;
+    }
+
+    public String getSqlForWord2_2() {
+        return sqlForWord2_2;
+    }
+
+    public void setSqlForWord2_2() {
+        String sql = "select *from guestbook;";
+        this.sqlForWord2_2 = sql;
+    }
+
     private String sql1;
     private String sql2;
     private String sql3;
@@ -122,4 +149,7 @@ public class getSQLString {
     private String sql9;
     private String sql10;
     private String sqlForGetclass;
+    private String sql_sleep_table;
+    private String sqlForWord2_1;
+    private String sqlForWord2_2;
 }

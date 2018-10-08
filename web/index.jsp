@@ -44,7 +44,7 @@
                 %>
               </select>
               时&nbsp;
-              <select>
+              <select lang="10">
                 <%
                   for(int i=1;i<60;i++) {
                 %>

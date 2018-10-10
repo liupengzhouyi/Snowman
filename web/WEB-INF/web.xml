@@ -49,6 +49,21 @@
         <url-pattern>/ServletPackage/testGetServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>work2Servlet</servlet-name>
+        <servlet-class>ServletPackage.work2Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>work2Servlet</servlet-name>
+        <url-pattern>/ServletPackage/work2Servlet</url-pattern>
+    </servlet-mapping>
 
-
+    <servlet>
+        <servlet-name>work2getInformationServlet</servlet-name>
+        <servlet-class>ServletPackage.work2getInformationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>work2getInformationServlet</servlet-name>
+        <url-pattern>/ServletPackage/work2getInformationServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

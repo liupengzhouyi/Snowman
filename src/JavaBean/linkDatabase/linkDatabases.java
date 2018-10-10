@@ -73,7 +73,7 @@ public class linkDatabases {
     public ResultSet getInformation(String sql) throws SQLException {
         this.createConnection();
         this.createStatement();
-        System.out.print(sql);
+        // System.out.print(sql);
         ResultSet resultSet = this.statement.executeQuery(sql);
         return resultSet;
     }

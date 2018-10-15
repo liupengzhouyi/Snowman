@@ -73,17 +73,17 @@
     </tr>
     <tr>
         <th>
-
+            是否确定
         </th>
         <td>
             <div>
-                <table>
+                <table border="1">
                     <tr>
                         <th>
-                            <a href="#"><button type="submit" value="" </a>
+                            <a href="#"><button type="submit">确定</button> </a>
                         </th>
                         <th>
-                            <a href="#"><button type="submit" value="" </a>
+                            <a href="#"><button type="reset">取消</button> </a>
                         </th>
                     </tr>
                 </table>

@@ -144,6 +144,25 @@ public class getOrderServlet extends HttpServlet {
                 datetime +
                 "        </td>\n" +
                 "    </tr>\n" +
+                "<tr>\n" +
+                "        <th>\n" +
+                "            是否确定\n" +
+                "        </th>\n" +
+                "        <td>\n" +
+                "            <div>\n" +
+                "                <table border=\"1\">\n" +
+                "                    <tr>\n" +
+                "                        <th>\n" +
+                "                            <a href=\"#\"><button type=\"submit\">确定</button> </a>\n" +
+                "                        </th>\n" +
+                "                        <th>\n" +
+                "                            <a href=\"#\"><button type=\"reset\">取消</button> </a>\n" +
+                "                        </th>\n" +
+                "                    </tr>\n" +
+                "                </table>\n" +
+                "            </div>\n" +
+                "        </td>\n" +
+                "    </tr>" +
                 "</table>");
 
 

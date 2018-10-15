@@ -1,0 +1,16 @@
+create table guestbook
+(
+  id int primary key auto_increment,
+  name varchar(20) not null ,
+  phone varchar(20) ,
+  email varchar(40) ,
+  title varchar(80) not null ,
+  content varchar(2000) ,
+  time time not null
+
+);
+
+insert into guestbook (id, name, phone, email, title, content, time) value (1, 'liupeng', '14747219744', 'LIUPENG.0@outlook.com', '我的一天', '我看了一天的《喜羊羊与灰太狼》', now());
+
+select *
+from guestbook;

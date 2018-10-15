@@ -29,7 +29,8 @@
     创建密码: a
     <input type="text" name="创建密码" maxlength="16"/><br />
     <br />
-</form><form>
+</form>
+<form>
     真实姓名:
     <input type="text" name="真实姓名" maxlength="8"/><br />
     <br />

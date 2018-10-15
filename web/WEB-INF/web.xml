@@ -4,6 +4,17 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+
+    <!-- JDBC DataSources (java:comp/env/jdbc) -->
+    <resource-ref>
+        <description>The default DS</description>
+        <res-ref-name>database_for_java_web</res-ref-name>
+        <!--该名称必须与下面的描述文件中的一致-->
+        <res-type>javax.sql.DataSource</res-type>
+        <!--看看你的配置-->
+        <res-auth>Container</res-auth>
+    </resource-ref>
+
     <servlet>
         <servlet-name>liupengServlet</servlet-name>
         <servlet-class>ServletPackage.liupengServlet</servlet-class>
@@ -65,5 +76,69 @@
     <servlet-mapping>
         <servlet-name>work2getInformationServlet</servlet-name>
         <url-pattern>/ServletPackage/work2getInformationServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>JNDITest</servlet-name>
+        <servlet-class>ServletPackage.JNDITest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JNDITest</servlet-name>
+        <url-pattern>/ServletPackage/JNDITest</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DataSourceTestServlet</servlet-name>
+        <servlet-class>ServletPackage.DataSourceTestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataSourceTestServlet</servlet-name>
+        <url-pattern>/ServletPackage/DataSourceTestServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>Session01Servlet</servlet-name>
+        <servlet-class>Session.Session01Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Session01Servlet</servlet-name>
+        <url-pattern>/Session/Session01Servlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteSessionServlet</servlet-name>
+        <servlet-class>Session.DeleteSessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteSessionServlet</servlet-name>
+        <url-pattern>/Session/DeleteSessionServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getInformationServlet_forJava_web</servlet-name>
+        <servlet-class>Session.getInformationServlet_forJava_web</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getInformationServlet_forJava_web</servlet-name>
+        <url-pattern>/Session/getInformationServlet_forJava_web</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LogInServlet_for_Java_web</servlet-name>
+        <servlet-class>Session.LogInServlet_for_Java_web</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogInServlet_for_Java_web</servlet-name>
+        <url-pattern>/Session/LogInServlet_for_Java_web</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getOrderServlet</servlet-name>
+        <servlet-class>Session.getOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getOrderServlet</servlet-name>
+        <url-pattern>/Session/getOrderServlet</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -30,5 +30,26 @@
       </library>
     </orderEntry>
     <orderEntry type="library" exported="" name="mysql-connector-java-5.1.47-bin" level="project" />
+    <orderEntry type="library" exported="" name="commons-collections4-4" level="project" />
+    <orderEntry type="library" exported="" name="commons-dbcp2-2.5" level="project" />
+    <orderEntry type="library" exported="" name="commons-pool2-2.6" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/lib/c3p0-0.9.5.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/lib/mchange-commons-java-0.2.11.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

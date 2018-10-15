@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="commons-dbcp2-2.5">
+    <CLASSES>
+      <root url="file://$USER_HOME$/lib/commons-dbcp2-2.5.0" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$USER_HOME$/lib/commons-dbcp2-2.5.0/apidocs" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$USER_HOME$/lib/commons-dbcp2-2.5.0" />
+    </SOURCES>
+    <jarDirectory url="file://$USER_HOME$/lib/commons-dbcp2-2.5.0" recursive="false" />
+    <jarDirectory url="file://$USER_HOME$/lib/commons-dbcp2-2.5.0" recursive="false" type="SOURCES" />
+  </library>
+</component>

@@ -138,6 +138,56 @@ public class getSQLString {
         this.sqlForWord2_2 = sql;
     }
 
+    //insert into lp_uesr_table_for_java_web (user_id, user_name, user_password) values (1, "liupeng", "123456");
+    public String getSql11() {
+        return sql11;
+    }
+
+    public void setSql11(String name, String password) {
+        this.sql11 = "insert into lp_uesr_table_for_java_web (user_name, user_password) values (\"" + name + "\", \"" + password + "\");";
+    }
+
+    public String getSql12() {
+        return sql12;
+    }
+
+    public void setSql12(String id) {
+        this.sql12 = "select * from lp_uesr_table_for_java_web where user_id = " + id + ";";
+    }
+
+    public String getSql13() {
+        return sql13;
+    }
+
+    public void setSql13(String name, int prich) {
+        //insert into lp_goods_for_java_web (good_id, good_name, good_prich) values (1, 'iphone', 12000);
+        this.sql13 = "insert into lp_goods_for_java_web (good_name, good_prich) values (\'" + name + "\', " + prich + ");";
+    }
+
+    public String getSql14() {
+        return sql14;
+    }
+
+    public void setSql14() {
+        this.sql14 = "select * from lp_goods_for_java_web;";
+    }
+
+    public String getSql15() {
+        return sql15;
+    }
+
+    public void setSql15(String user_id) {
+        this.sql15 = "select * from lp_uesr_table_for_java_web where user_id = " + user_id + ";";
+    }
+
+    public String getSql16() {
+        return sql16;
+    }
+
+    public void setSql16(String good_name) {
+        this.sql16 = "select * from lp_goods_for_java_web where good_name = \"" + good_name + "\";";
+    }
+
     private String sql1;
     private String sql2;
     private String sql3;
@@ -152,4 +202,10 @@ public class getSQLString {
     private String sql_sleep_table;
     private String sqlForWord2_1;
     private String sqlForWord2_2;
+    private String sql11;
+    private String sql12;
+    private String sql13;
+    private String sql14;
+    private String sql15;
+    private String sql16;
 }

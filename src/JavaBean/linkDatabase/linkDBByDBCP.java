@@ -26,7 +26,6 @@ public class linkDBByDBCP {
         key = this.statement.execute(string);
 
         return key;
-
     }
 
     public ResultSet getData(String sql) throws SQLException {

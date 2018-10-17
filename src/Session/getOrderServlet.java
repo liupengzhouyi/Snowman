@@ -87,85 +87,88 @@ public class getOrderServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         out.print("" +
-                "<table border=\"1\">\n" +
-                "    <tr>\n" +
-                "        <th>\n" +
-                "            订单属性\n" +
-                "        </th>\n" +
-                "        <th>\n" +
-                "            您的选择\n" +
-                "        </th>\n" +
-                "    </tr>\n" +
-                "    <tr>\n" +
-                "        <th>\n" +
-                "            商品名称\n" +
-                "        </th>\n" +
-                "        <td>\n" +
+                "<form action=\"/Session/SaveOrderServlet\" method=\"post\">" +
+                "        <table border=\"1\">\n" +
+                "            <tr>\n" +
+                "                <th>\n" +
+                "                    订单属性\n" +
+                "                </th>\n" +
+                "                <th>\n" +
+                "                    您的选择\n" +
+                "                </th>\n" +
+                "            </tr>\n" +
+                "            <tr>\n" +
+                "                <th>\n" +
+                "                    商品编号\n" +
+                "                </th>\n" +
+                "                <td>\n" +
+                goodId +
+                "                </td>\n" +
+                "            </tr>\n" +
+                "            <tr>\n" +
+                "                <th>\n" +
+                "                    商品名称\n" +
+                "                </th>\n" +
+                "                <td>\n" +
                 goodName +
-                "        </td>\n" +
-                "    </tr>\n" +
-                "    <tr>\n" +
-                "        <th>\n" +
-                "            用户编号\n" +
-                "        </th>\n" +
-                "        <td>\n" +
+                "                </td>\n" +
+                "            </tr>\n" +
+                "            <tr>\n" +
+                "                <th>\n" +
+                "                    用户编号\n" +
+                "                </th>\n" +
+                "                <td>\n" +
                 user_id +
-                "        </td>\n" +
-                "    </tr>\n" +
-                "    <tr>\n" +
-                "        <th>\n" +
-                "            用户名称\n" +
-                "        </th>\n" +
-                "        <td>\n" +
-                user_name +
-                "        </td>\n" +
-                "    </tr>\n" +
-                "    <tr>\n" +
-                "        <th>\n" +
-                "            商品数量\n" +
-                "        </th>\n" +
-                "        <td>\n" +
+                "                </td>\n" +
+                "            </tr>\n" +
+                "            <tr>\n" +
+                "                <th>\n" +
+                "                    用户名称\n" +
+                "                </th>\n" +
+                "                <td>\n" +
+                name +
+                "                </td>\n" +
+                "            </tr>\n" +
+                "            <tr>\n" +
+                "                <th>\n" +
+                "                    商品单价\n" +
+                "                </th>\n" +
+                "                <td>\n" +
+                goodPrice +
+                "                </td>\n" +
+                "            </tr>\n" +
+                "            <tr>\n" +
+                "                <th>\n" +
+                "                    商品数量\n" +
+                "                </th>\n" +
+                "                <td>\n" +
                 number +
-                "        </td>\n" +
-                "    </tr>\n" +
-                "    <tr>\n" +
-                "        <th>\n" +
-                "            总价\n" +
-                "        </th>\n" +
-                "        <td>\n" +
-                price +
-                "        </td>\n" +
-                "    </tr>\n" +
-                "    <tr>\n" +
-                "        <th>\n" +
-                "            下单时间\n" +
-                "        </th>\n" +
-                "        <td>\n" +
+                "                </td>\n" +
+                "            </tr>\n" +
+                "            <tr>\n" +
+                "                <th>\n" +
+                "                    总价\n" +
+                "                </th>\n" +
+                "                <td>\n" +
+                price  +
+                "                </td>\n" +
+                "            </tr>\n" +
+                "            <tr>\n" +
+                "                <th>\n" +
+                "                    下单时间\n" +
+                "                </th>\n" +
+                "                <td>\n" +
                 datetime +
-                "        </td>\n" +
-                "    </tr>\n" +
-                "<tr>\n" +
-                "        <th>\n" +
-                "            是否确定\n" +
-                "        </th>\n" +
-                "        <td>\n" +
-                "            <div>\n" +
-                "                <table border=\"1\">\n" +
-                "                    <tr>\n" +
-                "                        <th>\n" +
-                "                            <a href=\"#\"><button type=\"submit\">确定</button> </a>\n" +
-                "                        </th>\n" +
-                "                        <th>\n" +
-                "                            <a href=\"#\"><button type=\"reset\">取消</button> </a>\n" +
-                "                        </th>\n" +
-                "                    </tr>\n" +
-                "                </table>\n" +
-                "            </div>\n" +
-                "        </td>\n" +
-                "    </tr>" +
-                "</table>");
+                "                </td>\n" +
+                "            </tr>\n" +
+                "    </form>");
 
-
+        //保存数据
+        if (lpLinkDBByDBCP != null) {
+            lpGetSQLString.setSql17(user_id,goodId,number,datetime);
+            String sql = lpGetSQLString.getSql17();
+            lpLinkDBByDBCP.saveData(sql);
+        }
 
     }
 }

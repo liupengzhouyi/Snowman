@@ -188,6 +188,36 @@ public class getSQLString {
         this.sql16 = "select * from lp_goods_for_java_web where good_name = \"" + good_name + "\";";
     }
 
+    public String getSql17() {
+        return sql17;
+    }
+
+    public void setSql17(String user_id, String good_id, String number, String book_date) {
+        //insert into lp_shop_book_for_java_web (book_id, user_id, good_id, number, book_date) values (1, 1, 1, 2, now());
+        this.sql17 = "insert into lp_shop_book_for_java_web (user_id, good_id, number, book_date) values (" + user_id +
+                ", " + good_id + ", " + number + ", \'" + book_date + "\');";
+    }
+
+    public String getSql18() {
+        return sql18;
+    }
+
+    public void setSql18(String user_id) {
+        //select * from lp_shop_book_for_java_web where user_id = 1;
+        this.sql18 = "select * from lp_shop_book_for_java_web where user_id = " + user_id + ";";
+    }
+
+    public String getSql19() {
+        return sql19;
+    }
+
+    public void setSql19(String user_id) {
+        this.sql19 = "select A.book_id as '订单号', C.user_name as '用户名', B.good_name as '商品名', " +
+                "A.number as '数量', A.book_date as '订单日期' from lp_shop_book_for_java_web A, " +
+                "lp_goods_for_java_web B, lp_uesr_table_for_java_web C where " +
+                "(A.user_id = C.user_id and A.good_id = B.good_id) and A.user_id = " + user_id + ";";
+    }
+
     private String sql1;
     private String sql2;
     private String sql3;
@@ -208,4 +238,7 @@ public class getSQLString {
     private String sql14;
     private String sql15;
     private String sql16;
+    private String sql17;
+    private String sql18;
+    private String sql19;
 }

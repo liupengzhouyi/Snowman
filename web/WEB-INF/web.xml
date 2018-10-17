@@ -141,4 +141,13 @@
         <servlet-name>getOrderServlet</servlet-name>
         <url-pattern>/Session/getOrderServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SaveOrderServlet</servlet-name>
+        <servlet-class>Session.SaveOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SaveOrderServlet</servlet-name>
+        <url-pattern>/Session/SaveOrderServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -40,7 +40,7 @@ public class getNowTime {
     public String getUsedStringForID() {
         String yourID = "";
         for (int i = 0; i < nowTime.length(); i++)
-            if (i == 2 || i == 3 || i == 5 || i == 6 || i == 8 || i == 9) {
+            if (i==0||i==1||i == 2 || i == 3 || i == 5 || i == 6 || i == 8 || i == 9) {
                 yourID = yourID + nowTime.charAt(i);
             }
         return yourID;

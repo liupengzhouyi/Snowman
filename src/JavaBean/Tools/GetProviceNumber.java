@@ -46,7 +46,6 @@ public class GetProviceNumber {
 
     public GetProviceNumber() {
         init();
-
     }
 
     public void init() {
@@ -61,6 +60,7 @@ public class GetProviceNumber {
         }
     }
 
+    //测试
     public void testToPrint() {
         Set <String> keySet = proviceMap.keySet();
 
@@ -86,9 +86,14 @@ public class GetProviceNumber {
         }
     }
 
+    public String getID(String ID, String provice) {
+        String number = this.getProviceNumber(provice);
+        return ID + number;
+    }
+
     public static void main(String[] args) {
         GetProviceNumber getProviceNumber = new GetProviceNumber();
-        getProviceNumber.testToPrint();
+        //getProviceNumber.testToPrint();
         System.out.println("------------------------");
         System.out.print(getProviceNumber.getProviceNumber("台湾省"));
     }

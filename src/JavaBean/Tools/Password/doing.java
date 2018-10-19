@@ -26,7 +26,11 @@ public class doing {
         String valuees = new Encryption(yourUnicode).getText();
         System.out.println("你的密文：" + valuees);
 
+        System.out.println("我的unicode：" + myUnicode);
+        myUnicode = new GetYourUnicode(valuees).getMyUnicode();
+        System.out.println("我的unicode：" + myUnicode);
 
-
+        String unicodeII = new DIYCode().reUnicodeForMe(myUnicode);
+        System.out.println(unicodeII);
     }
 }

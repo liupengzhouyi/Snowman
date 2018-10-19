@@ -54,7 +54,7 @@ public class DIYCode {
     }
 
     public String reUnicodeForMe(String unicodeForMe) {
-        String[] hex = unicodeForMe.split("u");
+        String[] hex = unicodeForMe.split("z");
         String unicode = "";
 
         for (int i=1;i<hex.length;i++) {
@@ -213,9 +213,9 @@ public class DIYCode {
         DIYCode diyCode = new DIYCode();
         String string = diyCode.unicode("核心价值观111aaa@#");
         String passI = diyCode.unicodeForMe(string);
-        System.out.println(passI);
+        System.out.println(passI + "-");
         String reCode = diyCode.reUnicodeForMe(passI);
-        System.out.println(reCode);
+        System.out.println(reCode + "+");
         String text = diyCode.decodeUnicode(reCode);
         System.out.println(text);
     }

@@ -35,7 +35,7 @@ public class Encryption {
             key = arrays[i] + "";
             value = this.getAddCoreValues().getValue(key);
             //System.out.println(key + ":" + value);
-            this.setText(this.getText() + value);
+            this.setText(this.getText() + value + ",");
         }
     }
 

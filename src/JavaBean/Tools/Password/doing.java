@@ -31,6 +31,9 @@ public class doing {
         System.out.println("我的unicode：" + myUnicode);
 
         String unicodeII = new DIYCode().reUnicodeForMe(myUnicode);
-        System.out.println(unicodeII);
+        System.out.println("转化为unicode："+ unicodeII);
+
+        String string = new DIYCode().decodeUnicode(unicodeII);
+        System.out.println("明文：" + string);
     }
 }

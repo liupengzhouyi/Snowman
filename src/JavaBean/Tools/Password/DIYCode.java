@@ -54,7 +54,7 @@ public class DIYCode {
     }
 
     public String reUnicodeForMe(String unicodeForMe) {
-        String[] hex = unicodeForMe.split("z");
+        String[] hex = unicodeForMe.split("u");
         String unicode = "";
 
         for (int i=1;i<hex.length;i++) {

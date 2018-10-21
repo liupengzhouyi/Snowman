@@ -26,7 +26,7 @@
     }
 %>
 
-<font color="red">${requestScope.message}</font>
+<%--<font color="red">${requestScope.message}</font>--%>
 <form action="/ServletPackage/VerifyCodeServlet/LoginServlet3" method="post">
     用户名:<input type="text" name="username" value="<%= username%>"><font color="red">${requestScope.error}</font>
     <br>
@@ -47,8 +47,9 @@
     document.getElementById("btn").onclick = function () {
         // 获取img元素
         // 为了让浏览器发送请求到servlet, 所以一定要改变src
-        document.getElementsByTagName("img")[0].src = "/ServletPackage/VerifyCodeServlet/VerifyCodeServlet";
+        document.getElementsByTagName("img")[0].src = "/ServletPackage/VerifyCodeServlet/VerifyCodeServlet"
             + "?time=" + new Date().getTime();
+        ///day_1_12/VerifyCodeServlet?time=
     };
 </script>
 

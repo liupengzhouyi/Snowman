@@ -19,37 +19,22 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat " level="application_server_libraries" />
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/lib/mysql-connector-java-5.1.47.jar!/" />
+          <root url="jar://D:/jar/servlet-api.jar!/" />
+          <root url="file://D:/jar/mysql-connector-java-5.1.47" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
+        <SOURCES>
+          <root url="file://D:/jar/mysql-connector-java-5.1.47/src" />
+        </SOURCES>
+        <jarDirectory url="file://D:/jar/mysql-connector-java-5.1.47" recursive="false" />
       </library>
     </orderEntry>
     <orderEntry type="library" exported="" name="mysql-connector-java-5.1.47-bin" level="project" />
     <orderEntry type="library" exported="" name="commons-collections4-4" level="project" />
     <orderEntry type="library" exported="" name="commons-dbcp2-2.5" level="project" />
     <orderEntry type="library" exported="" name="commons-pool2-2.6" level="project" />
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/lib/c3p0-0.9.5.2.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/lib/mchange-commons-java-0.2.11.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
   </component>
 </module>

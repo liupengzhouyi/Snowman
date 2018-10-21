@@ -1,10 +1,13 @@
+/*
 package JavaBean.linkDatabase;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+*/
 /*import org.junit.Test;
-import me.gacl.util.JdbcUtils_DBCP;*/
+import me.gacl.util.JdbcUtils_DBCP;*//*
+
 
 public class DataSourceTest {
     public void dbcpDataSourceTest() {
@@ -30,4 +33,4 @@ public class DataSourceTest {
             JdbcUtils_DBCP.release(conn, st, rs);
         }
     }
-}
+}*/

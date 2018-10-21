@@ -150,4 +150,23 @@
         <servlet-name>SaveOrderServlet</servlet-name>
         <url-pattern>/Session/SaveOrderServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>VerifyCodeServlet</servlet-name>
+        <servlet-class>ServletPackage.VerifyCodeServlet.VerifyCodeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VerifyCodeServlet</servlet-name>
+        <url-pattern>/ServletPackage/VerifyCodeServlet/VerifyCodeServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>LoginServlet3</servlet-name>
+        <servlet-class>ServletPackage.VerifyCodeServlet.LoginServlet3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet3</servlet-name>
+        <url-pattern>/ServletPackage/VerifyCodeServlet/LoginServlet3</url-pattern>
+    </servlet-mapping>
+
 </web-app>

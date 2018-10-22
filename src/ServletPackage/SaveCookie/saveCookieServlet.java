@@ -12,6 +12,7 @@ import java.net.URLEncoder;
 
 @WebServlet(name = "saveCookieServlet")
 public class saveCookieServlet extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 为名字和姓氏创建 Cookie
         Cookie name = new Cookie("name", URLEncoder.encode(request.getParameter("name"), "UTF-8")); // 中文转码
@@ -48,5 +49,30 @@ public class saveCookieServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
+    }
+
+    public void deleteCookie(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        PrintWriter out = response.getWriter();
+        //清空Cookie操作
+        Cookie[] cookies = request.getCookies();
+        for(int i=0;i<cookies.length;i++) {
+            Cookie cookie = new Cookie("bbs_0001", null);
+            cookie.setMaxAge(0);
+        }
+    }
+
+    public String getCookieValue(HttpServletRequest request, HttpServletResponse response, String cookieKey) {
+        String cookieValue = "null";
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies
+                 ) {
+                if (cookie.getName().equals(cookieKey)) {
+                    cookieValue = cookie.getValue();
+                    break;
+                }
+            }
+        }
+        return cookieValue;
     }
 }

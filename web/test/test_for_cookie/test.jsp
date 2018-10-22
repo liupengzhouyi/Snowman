@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form action="/ServletPackage/SaveCookie/saveCookieServlet" method="GET">
+<form action="/ServletPackage/SaveCookie/saveCookieServlet" method="POST">
     站点名 ：<input type="text" name="name">
     <br />
     站点 URL：<input type="text" name="url" /><br>

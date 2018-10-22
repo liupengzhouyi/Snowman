@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.CookieStore;
 import java.net.URLEncoder;
 
 @WebServlet(name = "saveCookieServlet")
@@ -51,7 +52,8 @@ public class saveCookieServlet extends HttpServlet {
         doPost(request, response);
     }
 
-    public void deleteCookie(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    //删除所有cookie
+    public void deleteAllCookie(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter out = response.getWriter();
         //清空Cookie操作
         Cookie[] cookies = request.getCookies();
@@ -60,7 +62,21 @@ public class saveCookieServlet extends HttpServlet {
             cookie.setMaxAge(0);
         }
     }
+    //删除Cookie
+    public void seleteCookie(HttpServletRequest request, HttpServletResponse response, String cookieKey) {
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies
+            ) {
+                if (cookie.getName().equals(cookieKey)) {
+                    cookie.setMaxAge(0);
+                    break;
+                }
+            }
+        }
+    }
 
+    //获取cookie值
     public String getCookieValue(HttpServletRequest request, HttpServletResponse response, String cookieKey) {
         String cookieValue = "null";
         Cookie[] cookies = request.getCookies();

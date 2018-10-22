@@ -168,5 +168,32 @@
         <servlet-name>LoginServlet3</servlet-name>
         <url-pattern>/ServletPackage/VerifyCodeServlet/LoginServlet3</url-pattern>
     </servlet-mapping>
+    
+    <!--<servlet>
+        <servlet-name>FileUploadServlet</servlet-name>
+        <servlet-class>ServletPackage.FlieUpToNetwork.FileUploadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FileUploadServlet</servlet-name>
+        <url-pattern>/ServletPackage/FlieUpToNetwork/FileUploadServlet</url-pattern>
+    </servlet-mapping>-->
 
+    <!--<servlet>
+        <servlet-name>UploadHandleServlet</servlet-name>
+        <servlet-class>ServletPackage.FlieUpToNetwork.UploadHandleServle</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UploadHandleServlet</servlet-name>
+        <url-pattern>/ServletPackage/FlieUpToNetwork/UploadHandleServle</url-pattern>
+    </servlet-mapping>-->
+
+    <servlet>
+        <servlet-name>SimpleFileuploadServlet</servlet-name>
+        <servlet-class>ServletPackage.FlieUpToNetwork.SimpleFileuploadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SimpleFileuploadServlet</servlet-name>
+        <url-pattern>/ServletPackage/FlieUpToNetwork/SimpleFileuploadServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

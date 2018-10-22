@@ -1,3 +1,4 @@
+/*
 package ServletPackage.FlieUpToNetwork;
 
 import javax.servlet.ServletException;
@@ -21,9 +22,11 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 public class SimpleFileuploadServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    /**
+    */
+/**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
+     *//*
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
@@ -34,12 +37,17 @@ public class SimpleFileuploadServlet extends HttpServlet {
         //解决上传文件名的中文乱码
         upload.setHeaderEncoding("UTF-8");
         factory.setSizeThreshold(1024 * 500);//设置内存的临界值为500K
-        File linshi = new File("\\Users\\liupeng\\Documents\\DirForJavaWeb");//当超过500K的时候，存到一个临时文件夹中
+        //window
+        File linshi = new File("D://JavaWebFileDir");//当超过500K的时候，存到一个临时文件夹中
+        //mac
+        //File linshi = new File("D://JavaWebFileDir");//当超过500K的时候，存到一个临时文件夹中
         factory.setRepository(linshi);
         upload.setSizeMax(1024 * 1024 * 5);//设置上传的文件总的大小不能超过5M
         try {
             // 1. 得到 FileItem 的集合 items
-            List<FileItem> /* FileItem */items = upload.parseRequest(request);
+            List<FileItem> */
+/* FileItem *//*
+items = upload.parseRequest(request);
 
             // 2. 遍历 items:
             for (FileItem item : items) {
@@ -63,7 +71,7 @@ public class SimpleFileuploadServlet extends HttpServlet {
                     byte[] buffer = new byte[1024];
                     int len = 0;
 
-                    fileName = "\\Users\\liupeng\\Documents\\DirForJavaWeb\\" + fileName;//文件最终上传的位置
+                    fileName = "D://JavaWebFileDir//" + fileName;//文件最终上传的位置
                     System.out.println(fileName);
                     OutputStream out = new FileOutputStream(fileName);
 
@@ -82,3 +90,4 @@ public class SimpleFileuploadServlet extends HttpServlet {
 
     }
 }
+*/

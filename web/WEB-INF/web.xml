@@ -188,12 +188,21 @@
         <url-pattern>/ServletPackage/FlieUpToNetwork/UploadHandleServle</url-pattern>
     </servlet-mapping>-->
 
-    <servlet>
+    <!--<servlet>
         <servlet-name>SimpleFileuploadServlet</servlet-name>
         <servlet-class>ServletPackage.FlieUpToNetwork.SimpleFileuploadServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SimpleFileuploadServlet</servlet-name>
         <url-pattern>/ServletPackage/FlieUpToNetwork/SimpleFileuploadServlet</url-pattern>
+    </servlet-mapping>-->
+
+    <servlet>
+        <servlet-name>saveCookieServlet</servlet-name>
+        <servlet-class>ServletPackage.SaveCookie.saveCookieServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>saveCookieServlet</servlet-name>
+        <url-pattern>/ServletPackage/SaveCookie/saveCookieServlet</url-pattern>
     </servlet-mapping>
 </web-app>

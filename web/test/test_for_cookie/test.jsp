@@ -14,7 +14,7 @@
 
 <form action="/ServletPackage/SaveCookie/saveCookieServlet" method="POST">
     站点名 ：<input type="text" name="name">
-    <br />
+    <br/>
     站点 URL：<input type="text" name="url" /><br>
     <input type="submit" value="提交" />
 </form>

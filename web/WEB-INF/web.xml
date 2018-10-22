@@ -205,4 +205,15 @@
         <servlet-name>saveCookieServlet</servlet-name>
         <url-pattern>/ServletPackage/SaveCookie/saveCookieServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CookieServlet</servlet-name>
+        <servlet-class>ServletPackage.SaveCookie.CookieServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CookieServlet</servlet-name>
+        <url-pattern>/ServletPackage/SaveCookie/CookieServlet</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>

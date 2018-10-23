@@ -27,7 +27,20 @@ public class IPFilter implements Filter {
         this.setStartIp(Integer.parseInt(strStartIp.replace(".", "")));
         this.setEndIp(Integer.parseInt(strEndIp.replace(".", "")));
 
+        //获取客户端IP
+        String reqIp = req.getRemoteHost();
 
+        req.setAttribute("reqIp", reqIp);
+
+        reqIp = reqIp.replace(".", "");
+        int ip = Integer.parseInt(reqIp);
+
+        if (ip>endIp || ip <startIp) {
+            System.out.println("转到错误页面！");
+            ((HttpServletResponse) resp).sendRedirect("/test/测试页面重定向/Hello.jsp");
+        } else {
+            System.out.println("您的IP允许访问！");
+        }
 
     }
 

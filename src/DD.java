@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class DD {
 
     public void getdiStricts() {
@@ -108,9 +110,62 @@ public class DD {
                     "VALUES (" + i + ", \'" + strI + "\', \'" + strII + "\')");
 
         }
+
     }
 
+    public void getRentalHousing() {
+        //
+        String string = "挥泪出租 出租房大甩卖 大力出租 出租 便宜出租 好房源出租 出租房屋";
+
+        String[] strings = string.split(" ");
+        int longth = strings.length;
+
+        Random ra =new Random();
+
+        String sql = "INSERT INTO new_database.dbo.tb_rental_housing_table (rental_house_number, customer_number, house_type_number, rent, title, description, date, notes, rented_it) VALUES ();";
+
+        int user_id = 0;
+        int home_type = 0;
+        int rent = 0;
+
+        int y = 0;
+        int m = 0;
+        int d = 0;
+        int j = 0;
+
+        String data = null;
+        for (int i=2000;i<3000;i++) {
+            //随机用户
+            user_id = ra.nextInt(1997)+1;
+            //随机房屋类型
+            home_type = ra.nextInt(47) + 1;
+            //随机租金
+            rent = ra.nextInt(50) * 10 + 1500;
+            //随机年
+            y = ra.nextInt(5) + 2013;
+            //随机月
+            m = ra.nextInt(12) + 1;
+            //随机日
+            d = ra.nextInt(28) + 1;
+            data = y + "-" + m + "-" + d ;
+
+            j = ra.nextInt(6) + 1;
+
+            System.out.println("INSERT INTO new_database.dbo.tb_rental_housing_table " +
+                    "(rental_house_number, customer_number, house_type_number," +
+                    " rent, title, description, date, notes, rented_it) " +
+                    "VALUES (" + i + ", " + user_id + ", " + home_type + "," +
+                    rent + ", \'" + strings[j] + "\', \'" + "房价便宜" + "\', \'" + data + "\', \'"
+                    + "没有备注！\'," + 0 +");");
+
+        }
+
+
+
+    }
+
+
     public static void main(String[] args) {
-        new DD().getdiStricts();
+        new DD().getRentalHousing();
     }
 }

@@ -1,4 +1,3 @@
-/*
 package ServletPackage.FlieUpToNetwork;
 
 import org.apache.commons.fileupload.DiskFileUpload;
@@ -108,4 +107,3 @@ public class FileUploadServlet extends HttpServlet {
 
     }
 }
-*/

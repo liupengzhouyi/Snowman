@@ -221,11 +221,11 @@
         <filter-name>IPFilter</filter-name>
         <filter-class>ServletPackageII.Filter.IPFilter</filter-class>
         <init-param>
-            <param-name>startIp</param-name>
-            <param-value>127.0.0.2</param-value>
+            <param-name>startIP</param-name>
+            <param-value>127.0.0.1</param-value>
         </init-param>
         <init-param>
-            <param-name>endIp</param-name>
+            <param-name>endIP</param-name>
             <param-value>127.0.0.5</param-value>
         </init-param>
     </filter>

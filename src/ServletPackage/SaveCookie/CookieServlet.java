@@ -35,7 +35,7 @@ public class CookieServlet extends HttpServlet {
             cookie.setPath("/");            //- 根路径
             //JavaEE5兼容
             try{
-                cookie.setHttpOnly(true);   //- 防XSS
+                //cookie.setHttpOnly(true);   //- 防XSS
             }catch (NoSuchMethodError e) {
                 e.printStackTrace();
             }

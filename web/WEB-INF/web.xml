@@ -243,4 +243,13 @@
         <servlet-name>SaveUserServlet</servlet-name>
         <url-pattern>/Session/SaveUserServlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>GetUserInformationServlet</servlet-name>
+        <servlet-class>makefriend.GetUserInformationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetUserInformationServlet</servlet-name>
+        <url-pattern>/makefriend/GetUserInformationServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

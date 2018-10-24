@@ -55,12 +55,12 @@ public class AddCoreValues {
 
     public String getReValue(String key) {
         //System.out.println(key);
-        String value = this.reValues.get(key);
+        String value = (String) this.reValues.get(key);
         return value;
     }
 
     public String getValue(String key) {
-        String value = this.values.get(key);
+        String value = (String) this.values.get(key);
         return value;
     }
 

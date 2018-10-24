@@ -11,6 +11,15 @@
     <title>在线交友网注册</title>
 </head>
 <body>
+<%
+    HttpSession httpSession = request.getSession();
+    if (httpSession.isNew()) {
+        httpSession.setAttribute("test", "test");
+    } else {
+        httpSession.setAttribute("test", "test");
+    }
+%>
+<form action="/makefriend/GetUserInformationServlet" method="post">
     <table border="1">
         <tr>
             <th colspan="3">
@@ -62,17 +71,17 @@
                 选择你的省份
             </th>
             <td colspan="2">
-                <select>
-                <%
-                    getPrivices lpGetPrivices = new getPrivices();
-                    String[] strings = lpGetPrivices.getPrivices();
-                    for (int i=0;i<strings.length;i++) {
-                        String name = strings[i];
-                        %>
+                <%--<select name="privince">
+                    <%
+                        getPrivices lpGetPrivices = new getPrivices();
+                        String[] strings = lpGetPrivices.getPrivices();
+                        for (int i=0;i<strings.length;i++) {
+                            String name = strings[i];
+                    %>
                     <option><%=name%></option>
                     <%
-                    }
-                %>
+                        }
+                    %>--%>
                 </select>
             </td>
         </tr>
@@ -104,7 +113,7 @@
             </td>
         </tr>
     </table>
-
+</form>
     <script type="text/javascript">
 
         document.getElementById("lp_button").onclick = function () {

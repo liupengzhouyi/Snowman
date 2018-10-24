@@ -19,7 +19,7 @@ public class VerifyCode {
     // 可选字符
     private String codes  = "0123456789abcdefghjkmnopqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ";
     // 背景色
-    private Color bgColor  = new Color(255, 255, 255);
+    private Color bgColor  = new Color(188, 248, 255);
     // 验证码上的文本
     private String text ;
 

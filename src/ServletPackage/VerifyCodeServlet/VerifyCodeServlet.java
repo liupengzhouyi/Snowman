@@ -25,7 +25,7 @@ public class VerifyCodeServlet extends HttpServlet {
         //打印获取的内容
         System.out.println(text);
         // 将系统生成的文本内容保存到session中
-        request.getSession().setAttribute("text", text);
+        request.getSession().setAttribute("text", "verify_code_server");
         //向浏览器输出图片
         vc.output(bi, response.getOutputStream());
     }

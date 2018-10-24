@@ -13,7 +13,6 @@
 </head>
 <body>
 <%
-
     // 获取浏览器发送过来的cookie, 获取用户信息
     Cookie[] cookies = request.getCookies();
     String username = "";

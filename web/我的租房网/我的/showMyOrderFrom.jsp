@@ -11,6 +11,15 @@
     <title>我的租房订单</title>
 </head>
 <body>
+<%
+    HttpSession httpSession = request.getSession();
+    // 获取用户ID
+    //String user_id = httpSession.getAttribute("user_id");
+
+
+%>
+
+
 
 </body>
 </html>

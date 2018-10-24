@@ -13,7 +13,7 @@
 <body>
 <div>
     <center>
-        <form action="" method="post">
+        <form action="/Session/SaveUserServlet" method="post">
             <table border="0">
                 <tr style="background-color: #addd9e">
                     <th>

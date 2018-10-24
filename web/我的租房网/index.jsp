@@ -10,8 +10,16 @@
 <head>
     <title>Title</title>
 </head>
-tijiao
+
 <body>
+<%
+    HttpSession httpSession = request.getSession();
+    // 获取用户ID
+    //String user_id = httpSession.getAttribute("user_id");
+
+
+%>
+
     <h1 align="center">我的租房（测试版本）</h1>
     <hr>
     <table>

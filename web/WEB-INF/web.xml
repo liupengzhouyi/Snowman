@@ -235,4 +235,12 @@
     </filter-mapping>
 
 
+    <servlet>
+        <servlet-name>SaveUserServlet</servlet-name>
+        <servlet-class>Session.SaveUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SaveUserServlet</servlet-name>
+        <url-pattern>/Session/SaveUserServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

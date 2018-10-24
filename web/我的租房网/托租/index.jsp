@@ -11,6 +11,13 @@
     <title>房源注册</title>
 </head>
 <body>
+<%
+    HttpSession httpSession = request.getSession();
+    // 获取用户ID
+    //String user_id = httpSession.getAttribute("user_id");
+
+
+%>
     <table border="1">
         <tr>
             <th>

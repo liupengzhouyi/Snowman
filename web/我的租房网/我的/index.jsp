@@ -11,7 +11,26 @@
     <title>我的</title>
 </head>
 <body>
-<a href="/我的租房网/我的/showMyHouse.jsp"><button type="button" >我的房源</button></a>
-<a href="/我的租房网/我的/showMyOrderFrom.jsp"><button type="button" >我的租房</button></a>
+
+<%
+    HttpSession httpSession = request.getSession();
+    // 获取用户ID
+    //String user_id = httpSession.getAttribute("user_id");
+
+
+%>
+
+<a href="/我的租房网/我的/showMyHouse.jsp">
+    <button type="button" >
+        我的房源
+    </button>
+</a>
+
+<a href="/我的租房网/我的/showMyOrderFrom.jsp">
+    <button type="button" >
+        我的租房
+    </button>
+</a>
+
 </body>
 </html>

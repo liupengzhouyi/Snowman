@@ -1,0 +1,5 @@
+create table privince_table
+(
+  provices_id int primary key ,
+  provices_name varchar(20)
+);

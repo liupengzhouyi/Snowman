@@ -1,8 +1,10 @@
 package ServletPackage;
 
 import JavaBean.linkDatabase.getSQLString;
+import JavaBean.linkDatabase.linkDBByDBCP;
 import JavaBean.linkDatabase.linkDatabases;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,8 +27,10 @@ public class work2getInformationServlet extends HttpServlet {
         String sql = lpGetSQLString.getSqlForWord2_2();
         try {
             out.print("<table>");
-            linkDatabases lpLinkDatabases = new linkDatabases();
-            ResultSet resultSet = lpLinkDatabases.getInformation(sql);
+            //linkDatabases lpLinkDatabases = new linkDatabases();
+            linkDBByDBCP lpLinkDatabases = new linkDBByDBCP();
+            ResultSet resultSet = lpLinkDatabases.getData(sql);
+            //ResultSet resultSet = lpLinkDatabases.getInformation(sql);
             while(resultSet.next()) {
                 String name = resultSet.getString("name");
                 String phone = resultSet.getString("phone");
@@ -51,9 +55,9 @@ public class work2getInformationServlet extends HttpServlet {
                 out.print("</tr>");
             }
             out.print("</table>");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NamingException e) {
             e.printStackTrace();
         }
     }

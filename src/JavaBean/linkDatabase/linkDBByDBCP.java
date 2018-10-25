@@ -28,6 +28,7 @@ public class linkDBByDBCP {
         return key;
     }
 
+
     public ResultSet getData(String sql) throws SQLException {
         ResultSet resultSet = null;
         resultSet = this.statement.executeQuery(sql);
@@ -53,4 +54,5 @@ public class linkDBByDBCP {
     Connection connection = null;
 
     Statement statement = null;
+
 }

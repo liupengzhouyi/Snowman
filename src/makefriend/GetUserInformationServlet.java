@@ -16,13 +16,21 @@ import java.sql.SQLException;
 
 @WebServlet(name = "GetUserInformationServlet")
 public class GetUserInformationServlet extends HttpServlet {
+    public void init() {
+        this.email = new String();
+        this.name = new String();
+        this.verify_code = new String();
+        this.passwordI = new String();
+        this.passwordII = new String();
+        this.sex = new String();
+        this.phone = new String();
+        this.v_code = new String();
+        this.privince = new String();
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.init();
         HttpSession httpSession = request.getSession();
-        /*String test = (String) httpSession.getAttribute("test");
-        String text = (String) httpSession.getAttribute("verify_code_server");
-        PrintWriter out = response.getWriter();
-        out.println(test);
-        out.println(text);*/
 
         //获取用户电子邮件
         String user_email = request.getParameter("user_email");
@@ -69,16 +77,19 @@ public class GetUserInformationServlet extends HttpServlet {
                         keyOfInput = true;
                     } else {
                         //验证码出现错误
+                        response.sendRedirect("/在线交友网/错误页面/注册错误/验证码错误.jsp");
                     }
                 } else{
                     //手机号码出现问题
+                    response.sendRedirect("/在线交友网/错误页面/注册错误/手机号码出现错误.jsp");
                 }
             } else {
                 //密码不一致
+                response.sendRedirect("/在线交友网/错误页面/注册错误/密码不一致.jsp");
             }
         } else {
             //没有全部输入
-
+            response.sendRedirect("/在线交友网/登录/index.jsp");
         }
 
     }
@@ -86,6 +97,7 @@ public class GetUserInformationServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }
+
 
     /**
      * 创建用户ID
@@ -95,6 +107,7 @@ public class GetUserInformationServlet extends HttpServlet {
      * @throws ClassNotFoundException
      */
     public void createUserId(String privince, String sex) throws SQLException, ClassNotFoundException {
+        this.userID = new String();
         this.setUserID(new CreateID(privince, sex).getID());
     }
 

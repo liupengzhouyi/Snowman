@@ -77,19 +77,19 @@ public class GetUserInformationServlet extends HttpServlet {
                         keyOfInput = true;
                     } else {
                         //验证码出现错误
-                        response.sendRedirect("/在线交友网/错误页面/注册错误/验证码错误.jsp");
+                        response.sendRedirect("/makefirenfonline/errorPage/signin/verify_code.jsp");
                     }
                 } else{
                     //手机号码出现问题
-                    response.sendRedirect("/在线交友网/错误页面/注册错误/手机号码出现错误.jsp");
+                    response.sendRedirect("/makefirenfonline/errorPage/signin/phone_number.jsp");
                 }
             } else {
                 //密码不一致
-                response.sendRedirect("/在线交友网/错误页面/注册错误/密码不一致.jsp");
+                response.sendRedirect("/makefirenfonline/errorPage/signin/password_different.jsp");
             }
         } else {
             //没有全部输入
-            response.sendRedirect("/在线交友网/登录/index.jsp");
+            response.sendRedirect("/makefirenfonline/errorPage/signin/data_is_not_enough.jsp");
         }
 
     }

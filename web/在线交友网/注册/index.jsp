@@ -68,10 +68,21 @@
         </tr>
         <tr>
             <th colspan="1">
+                性别
+            </th>
+            <td colspan="1">
+                <input type="radio" value="男" name="sex" />男
+            </td>
+            <td colspan="1">
+                <input type="radio" value="女" name="sex" />女
+            </td>
+        </tr>
+        <tr>
+            <th colspan="1">
                 选择你的省份
             </th>
             <td colspan="2">
-                <%--<select name="privince">
+                <select name="privince">
                     <%
                         getPrivices lpGetPrivices = new getPrivices();
                         String[] strings = lpGetPrivices.getPrivices();
@@ -81,7 +92,7 @@
                     <option><%=name%></option>
                     <%
                         }
-                    %>--%>
+                    %>
                 </select>
             </td>
         </tr>

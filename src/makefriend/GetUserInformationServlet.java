@@ -1,5 +1,9 @@
 package makefriend;
 
+//import sun.jvm.hotspot.tools.Tool;
+
+import makefriend.CreateID.CreateID;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 @WebServlet(name = "GetUserInformationServlet")
 public class GetUserInformationServlet extends HttpServlet {
@@ -43,8 +48,38 @@ public class GetUserInformationServlet extends HttpServlet {
         //获取用户验证码
         String verify_code = request.getParameter("verify_code");
         this.setVerify_code(verify_code);
+        //原来的验证码
+        String vcode = (String) httpSession.getAttribute("verify_code_server");
 
 
+        //有没有输入的内容
+        boolean judge_all_input = this.judgeAllInput();
+        //密码不一致
+        boolean judge_password = this.judgePassword();
+        //验证码错误
+        boolean judge_verify_code = this.judgeVerifyCode();
+        //手机号码格式错误
+        boolean judge_phone_number = this.judgePhoneNumber();
+
+        boolean keyOfInput = false;
+        if (judge_all_input) {
+            if (judge_password) {
+                if (judge_phone_number) {
+                    if (judge_verify_code) {
+                        keyOfInput = true;
+                    } else {
+                        //验证码出现错误
+                    }
+                } else{
+                    //手机号码出现问题
+                }
+            } else {
+                //密码不一致
+            }
+        } else {
+            //没有全部输入
+
+        }
 
     }
 
@@ -52,6 +87,98 @@ public class GetUserInformationServlet extends HttpServlet {
         doPost(request, response);
     }
 
+    /**
+     * 创建用户ID
+     * @param privince
+     * @param sex
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
+    public void createUserId(String privince, String sex) throws SQLException, ClassNotFoundException {
+        this.setUserID(new CreateID(privince, sex).getID());
+    }
+
+    public void userInformationInputToDXatabase() {
+        //
+    }
+
+    /**
+     * 判断是否为手机号码格式
+     * @return
+     */
+    public boolean judgePhoneNumber() {
+        boolean returnKey = false;
+        if (this.getPhone().length() != 11) {
+            returnKey = false;
+        } else {
+            if (this.getPhone().charAt(0) != '1') {
+                returnKey = false;
+            } else {
+                returnKey = true;
+            }
+        }
+        return returnKey;
+    }
+
+
+    /**
+     * 验证码是否正确
+     * @return
+     */
+    public boolean judgeVerifyCode() {
+        boolean returnKey = false;
+        if (this.getV_code().equals(this.getVerify_code())) {
+            returnKey = true;
+        }
+        return returnKey;
+    }
+
+    /**
+     * 判断密码一致
+     * @return
+     */
+    public boolean judgePassword() {
+        boolean returnKey = false;
+        if (this.getPasswordI().equals(this.passwordII)) {
+            returnKey = true;
+        }
+        return returnKey;
+    }
+
+    /**
+     * 判断用户是否全部输入
+     * @return
+     */
+    public boolean judgeAllInput() {
+        boolean returnKey = false;
+
+        if (ToolForJudgeAllInput(this.getEmail())) {
+            if (ToolForJudgeAllInput(this.getName())) {
+                if (ToolForJudgeAllInput(this.getPasswordI())) {
+                    if (ToolForJudgeAllInput(this.getPasswordII())) {
+                        if (ToolForJudgeAllInput(this.getPhone())) {
+                            if (ToolForJudgeAllInput(this.getPrivince())) {
+                                if (ToolForJudgeAllInput(this.getSex())) {
+                                    if (ToolForJudgeAllInput(this.getVerify_code())) {
+                                        returnKey = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return returnKey;
+    }
+
+    public boolean ToolForJudgeAllInput(String value) {
+        boolean returnKey = true;
+        if (value.equals("") || value == null) {
+            returnKey = false;
+        }
+        return returnKey;
+    }
 
     public String getEmail() {
         return email;
@@ -117,6 +244,24 @@ public class GetUserInformationServlet extends HttpServlet {
         this.verify_code = verify_code;
     }
 
+    public String getV_code() {
+        return v_code;
+    }
+
+    public void setV_code(String v_code) {
+        this.v_code = v_code;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    private String userID = null;
+
     private String email = null;
 
     private String name = null;
@@ -132,4 +277,6 @@ public class GetUserInformationServlet extends HttpServlet {
     private String privince = null;
 
     private String verify_code = null;
+
+    private String v_code = null;
 }

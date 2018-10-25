@@ -11,13 +11,20 @@
     <title>Title</title>
 </head>
 <body>
+<h1>
+    恭喜您，加入我们！
+</h1>
 
 <%
     HttpSession httpSession = request.getSession();
     String id = (String) httpSession.getAttribute("user_id");
 %>
 
-<%=id%>
+<h3>
+    <ccenter>
+        您的用户ID是:&nbsp;<%=id%>
+    </ccenter>
+</h3>
 
 </body>
 </html>

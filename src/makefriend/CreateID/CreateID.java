@@ -1,16 +1,17 @@
 package makefriend.CreateID;
 
 import makefriend.makefriendonline.linkDatabases;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CreateID {
+
     /**
      * 需要参数：省份
-     * 需要性别
+     * 需要，性别
      *
      */
+
     public CreateID(String provice, String sex) throws SQLException, ClassNotFoundException {
         this.init(provice);
 
@@ -18,6 +19,7 @@ public class CreateID {
         //省份： 内蒙古自治区
         //第几个： 56
         //获取日期
+
         String date = new getNowTime().getUsedStringForID();
         ID = date;
 
@@ -112,5 +114,4 @@ public class CreateID {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         new CreateID("内蒙古自治区", "男");
     }
-
 }

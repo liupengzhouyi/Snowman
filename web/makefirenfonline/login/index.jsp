@@ -11,49 +11,57 @@
     <title>在线交友网登录</title>
 </head>
 <body>
-
-<table border="1">
-    <tr>
-        <th colspan="3">
-            用户注册
-        </th>
-    </tr>
-    <tr>
-        <th colspan="1">
-            请输入你的电子邮件
-        </th>
-        <td colspan="2">
-            <input type="email" name="user_email">
-        </td>
-    </tr>
-    <tr >
-        <th colspan="1">
-            验证码
-        </th>
-        <th colspan="1">
-            <img src="/ServletPackage/VerifyCodeServlet/VerifyCodeServlet">
-        </th>
-        <td colspan="1">
-            <button type="button" id="lp_button">看不清，换一张！</button>
-        </td>
-    </tr>
-    <tr>
-        <th colspan="1">
-            请输入验证码
-        </th>
-        <td colspan="2">
-            <input type="text" name="verify_code">
-        </td>
-    </tr>
-    <tr>
-        <td colspan="1">
-            <button type="reset">重置</button>
-        </td>
-        <td colspan="1">
-            <button type="submit">提交</button>
-        </td>
-    </tr>
-</table>
-
+<form action="/makefriend/GetUserInformationServlet" method="post">
+    <table border="1">
+        <tr>
+            <th colspan="3">
+                用户登录
+            </th>
+        </tr>
+        <tr>
+            <th colspan="1">
+                请输入你的ID
+            </th>
+            <td colspan="2">
+                <input type="text" name="user_id">
+            </td>
+        </tr>
+        <tr>
+            <th colspan="1">
+                设置密码
+            </th>
+            <td colspan="2">
+                <input type="password" name="user_password">
+            </td>
+        </tr>
+        <tr>
+            <th colspan="1">
+                验证码
+            </th>
+            <th colspan="1">
+                <img src="/ServletPackage/VerifyCodeServlet/VerifyCodeServlet">
+            </th>
+            <td colspan="1">
+                <button type="button" id="lp_button">看不清，换一张！</button>
+            </td>
+        </tr>
+        <tr>
+            <th colspan="1">
+                请输入验证码
+            </th>
+            <td colspan="2">
+                <input type="text" name="user_verify_code">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="1">
+                <button type="reset">重置</button>
+            </td>
+            <td colspan="1">
+                <button type="submit">提交</button>
+            </td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>

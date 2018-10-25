@@ -252,4 +252,13 @@
         <servlet-name>GetUserInformationServlet</servlet-name>
         <url-pattern>/makefriend/GetUserInformationServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetUserLoginInformationServlet</servlet-name>
+        <servlet-class>makefriend.GetUserLoginInformationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetUserLoginInformationServlet</servlet-name>
+        <url-pattern>/makefriend/GetUserLoginInformationServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

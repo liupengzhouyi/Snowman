@@ -11,6 +11,16 @@
     <title>验证码错误</title>
 </head>
 <body>
-
+<h1>
+    <center>
+        对不起，您的验证码错误
+    </center>
+</h1>
+<hr>
+<p>
+    <center>
+        <a href="/makefirenfonline/signin/index.jsp"><p>点我返回</p></a>
+</center>
+</p>
 </body>
 </html>

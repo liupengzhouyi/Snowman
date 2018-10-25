@@ -11,6 +11,16 @@
     <title>密码不一致</title>
 </head>
 <body>
-
+<h1>
+    <center>
+        对不起，密码不一致
+    </center>
+</h1>
+<hr>
+<p>
+    <center>
+        <a href="/makefirenfonline/signin/index.jsp"><p>点我返回</p></a>
+</center>
+</p>
 </body>
 </html>

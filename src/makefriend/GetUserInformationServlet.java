@@ -4,6 +4,7 @@ package makefriend;
 
 import makefriend.CreateID.CreateID;
 import makefriend.CreateID.getNowTime;
+import makefriend.makefriendonline.getPrivices;
 import makefriend.makefriendonline.linkDatabases;
 
 import javax.servlet.ServletException;
@@ -32,8 +33,13 @@ public class GetUserInformationServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+
         this.init();
         HttpSession httpSession = request.getSession();
+
+        //通过设置响应头控制浏览器以UTF-8的编码显示数据，如果不加这句话，那么浏览器显示的将是乱码
+
 
         //获取用户电子邮件
         String user_email = request.getParameter("user_email");
@@ -43,6 +49,11 @@ public class GetUserInformationServlet extends HttpServlet {
         this.setName(user_name);
         //获取用户性别
         String user_sex = request.getParameter("sex");
+        if (user_sex.equals("0")) {
+            user_sex = "男";
+        } else {
+            user_sex = "女";
+        }
         this.setSex(user_sex);
         //获取用户密码I
         String user_passwordI = request.getParameter("user_passwordI");
@@ -53,8 +64,18 @@ public class GetUserInformationServlet extends HttpServlet {
         //获取用户电话号码
         String user_phone = request.getParameter("user_phone");
         this.setPhone(user_phone);
-        //获取用户省份
-        String user_privince = request.getParameter("privince");
+        //获取用户省份number
+        String user_privince = "";
+        String privince_number = request.getParameter("privince");
+
+        try {
+            user_privince = new getPrivices().getPrivinceByNumber(privince_number);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         this.setPrivince(user_privince);
         System.out.println(user_privince);
         //获取用户验证码
@@ -132,10 +153,11 @@ public class GetUserInformationServlet extends HttpServlet {
      * 将数据保存到数据库的注册页面
      */
     public void userInformationInputToDXatabase() throws SQLException, ClassNotFoundException {
-        //
+        //创建ID
+        this.createUserId(this.getPrivince(), this.getSex());
         //insert into user(user_id, user_name, user_password_value, user_email, user_sex, user_phone, user_privince, user_create_date, user_create_time) values ();
         int password_hash = this.getPasswordI().hashCode();
-        System.out.println(this.getPrivince());
+        System.out.println("开始写数据：" + this.getPrivince());
         int privinceNumber = this.getPriviceNumber(this.getPrivince());
         String data = new getNowTime().getDate();
         String time = new getNowTime().getTime();

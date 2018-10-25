@@ -1,4 +1,5 @@
-<%@ page import="makefriend.makefriendonline.getPrivices" %><%--
+<%@ page import="makefriend.makefriendonline.getPrivices" %>
+<%@ page import="java.io.PrintWriter" %><%--
   Created by IntelliJ IDEA.
   User: liupeng
   Date: 2018/10/24
@@ -71,10 +72,10 @@
                 性别
             </th>
             <td colspan="1">
-                <input type="radio" value="男" name="sex" />男
+                <input type="radio" value="0" name="sex" />男
             </td>
             <td colspan="1">
-                <input type="radio" value="女" name="sex" />女
+                <input type="radio" value="1" name="sex" />女
             </td>
         </tr>
         <tr>
@@ -86,10 +87,14 @@
                     <%
                         getPrivices lpGetPrivices = new getPrivices();
                         String[] strings = lpGetPrivices.getPrivices();
+                        String[] numbers = lpGetPrivices.getNumber();
                         for (int i=0;i<strings.length;i++) {
                             String name = strings[i];
+                            String number = numbers[i];
                     %>
-                    <option><%=name%></option>
+                    <option value="<%=number%>">
+                    <%=name%>
+                    </option>
                     <%
                         }
                     %>

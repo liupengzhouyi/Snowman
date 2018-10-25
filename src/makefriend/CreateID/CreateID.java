@@ -43,15 +43,18 @@ public class CreateID {
     }
 
     public void init(String provice) throws ClassNotFoundException, SQLException {
-        String sql = "select provices_id from privince_table where provices_name = \' " + provice + " \';";
+        number = new String();
+        sex = new String();
+        String sql = "select provices_id from privince_table where provices_name = \'" + provice + "\';";
+        System.out.println(sql);
         ResultSet resultSet = new linkDatabases().getInformation(sql);
-        String proviceId = "-1";
+        int proviceId = -1;
         String dateInDB = "";
         int number = -1;
         while(resultSet.next()) {
-            proviceId = resultSet.getString("provices_name");
-            break;
+            proviceId = resultSet.getInt("provices_id");
         }
+        System.out.println(proviceId);
         String date = new getNowTime().getDate();
         sql = "select * from privince_number_table where privince_id = " + proviceId + ";";
         resultSet = new linkDatabases().getInformation(sql);
@@ -60,15 +63,20 @@ public class CreateID {
             number = resultSet.getInt("number");
             break;
         }
-        if (date != dateInDB) {
+        System.out.println(date);
+        System.out.println(dateInDB);
+        if (date.equals(dateInDB)) {
+            number = number + 1;
+        } else {
+            System.out.println("-----");
             dateInDB = date;
             number = 0;
             this.setNumber(number);
-        } else {
-            number = number + 1;
         }
-        sql = "update privince_number_table set today = \' " + dateInDB + " \', number = " + number + " where privince_id = " + proviceId + ";";
-        new linkDatabases().saveData(sql);
+        this.setNumber(number);
+        sql = "update privince_number_table set today = \'" + dateInDB + "\', number = " + number + " where privince_id = " + proviceId + ";";
+        System.out.println(sql);
+        new linkDatabases().updateData(sql);
     }
 
     public String getNumber() {

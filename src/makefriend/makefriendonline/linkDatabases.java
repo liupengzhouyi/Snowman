@@ -78,6 +78,11 @@ public class linkDatabases {
         return resultSet;
     }
 
+    public void updateData(String sql) throws SQLException {
+        this.createConnection();
+        this.createStatement();
+        this.statement.executeUpdate(sql);
+    }
 /*
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         linkDatabases linkDatabase = new linkDatabases();

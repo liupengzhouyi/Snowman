@@ -18,7 +18,7 @@
         </td>
     </tr>
 </table>
-    <a href="/在线交友网/登录/index.jsp"><button type="button">登录</button></a>
-    <a href="/在线交友网/注册/index.jsp"><button type="button">注册</button></a>
+    <a href="/makefirenfonline/login/index.jsp"><button type="button">登录</button></a>
+    <a href="/makefirenfonline/signin/index.jsp"><button type="button">注册</button></a>
 </body>
 </html>

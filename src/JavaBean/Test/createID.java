@@ -16,7 +16,7 @@ public class createID {
         ID = new GetProviceNumber().getID(ID, provice);
 
         //获取number
-        AddNumber addNumber = new AddNumber(ID);
+        AddNumber addNumber = new AddNumber(ID, number);
 
         addNumber.init(number);
 
@@ -44,6 +44,6 @@ public class createID {
     private String ID = null;
 
     public static void main(String[] args) {
-        new createID("内蒙古自治区", "56");
+        System.out.print(new createID("内蒙古自治区", "0").getID());
     }
 }

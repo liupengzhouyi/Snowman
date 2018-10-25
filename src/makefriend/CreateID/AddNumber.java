@@ -1,4 +1,4 @@
-package JavaBean.Tools;
+package makefriend.CreateID;
 
 /**
  * 函数调用过程

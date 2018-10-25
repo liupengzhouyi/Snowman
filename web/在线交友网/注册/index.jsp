@@ -1,4 +1,4 @@
-<%@ page import="JavaBean.Tools.makefriendonline.getPrivices" %><%--
+<%@ page import="makefriend.makefriendonline.getPrivices" %><%--
   Created by IntelliJ IDEA.
   User: liupeng
   Date: 2018/10/24
@@ -115,7 +115,6 @@
     </table>
 </form>
     <script type="text/javascript">
-
         document.getElementById("lp_button").onclick = function () {
             // 获取img元素
             // 为了让浏览器发送请求到servlet, 所以一定要改变src
@@ -124,6 +123,5 @@
             ///day_1_12/VerifyCodeServlet?time=
         };
     </script>
-    <%--////--%>
 </body>
 </html>

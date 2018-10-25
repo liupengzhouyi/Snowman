@@ -1,4 +1,4 @@
-package JavaBean.Tools.makefriendonline;
+package makefriend.makefriendonline;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

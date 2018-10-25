@@ -3,6 +3,8 @@ package makefriend;
 //import sun.jvm.hotspot.tools.Tool;
 
 import makefriend.CreateID.CreateID;
+import makefriend.CreateID.getNowTime;
+import makefriend.makefriendonline.linkDatabases;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @WebServlet(name = "GetUserInformationServlet")
@@ -53,12 +56,13 @@ public class GetUserInformationServlet extends HttpServlet {
         //获取用户省份
         String user_privince = request.getParameter("privince");
         this.setPrivince(user_privince);
+        System.out.println(user_privince);
         //获取用户验证码
         String verify_code = request.getParameter("verify_code");
         this.setVerify_code(verify_code);
         //原来的验证码
         String vcode = (String) httpSession.getAttribute("verify_code_server");
-
+        this.setV_code(verify_code);
 
         //有没有输入的内容
         boolean judge_all_input = this.judgeAllInput();
@@ -92,6 +96,19 @@ public class GetUserInformationServlet extends HttpServlet {
             response.sendRedirect("/makefirenfonline/errorPage/signin/data_is_not_enough.jsp");
         }
 
+        if (keyOfInput) {
+            //保存数据
+            try {
+                this.userInformationInputToDXatabase();
+                //注册成功的通知
+                response.sendRedirect("/makefirenfonline/success/signin/index.jsp");
+                httpSession.setAttribute("user_id", this.getUserID());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -111,8 +128,44 @@ public class GetUserInformationServlet extends HttpServlet {
         this.setUserID(new CreateID(privince, sex).getID());
     }
 
-    public void userInformationInputToDXatabase() {
+    /**
+     * 将数据保存到数据库的注册页面
+     */
+    public void userInformationInputToDXatabase() throws SQLException, ClassNotFoundException {
         //
+        //insert into user(user_id, user_name, user_password_value, user_email, user_sex, user_phone, user_privince, user_create_date, user_create_time) values ();
+        int password_hash = this.getPasswordI().hashCode();
+        System.out.println(this.getPrivince());
+        int privinceNumber = this.getPriviceNumber(this.getPrivince());
+        String data = new getNowTime().getDate();
+        String time = new getNowTime().getTime();
+        String sql = "insert into user(user_id, user_name, user_password_value, " +
+                "user_email, user_sex, user_phone, user_privince, user_create_date, " +
+                "user_create_time) values (\'" + this.getUserID() + "\', \'" + this.getName() + "\', " +
+                "\'" + password_hash + "\', \'" + this.getEmail() + "\', \'" + this.getSex() + "\', " +
+                "\'" + this.getPhone() + "\', " + privinceNumber + ", \'" + data + "\', \'" + time + "\');";
+        System.out.println(sql);
+        new linkDatabases().saveData(sql);
+    }
+
+    /**
+     * 获取当前省份的编号
+     * @param privince
+     * @return
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     */
+    public int getPriviceNumber(String privince) throws ClassNotFoundException, SQLException {
+        String sql = "select * from privince_table where provices_name = \'" + privince + "\';";
+        System.out.println(sql);
+        ResultSet resultSet = new linkDatabases().getInformation(sql);
+        int proviceId = -1;
+        String dateInDB = "";
+        while(resultSet.next()) {
+            proviceId = resultSet.getInt("provices_id");
+        }
+        System.out.println(proviceId);
+        return proviceId;
     }
 
     /**
@@ -140,6 +193,9 @@ public class GetUserInformationServlet extends HttpServlet {
      */
     public boolean judgeVerifyCode() {
         boolean returnKey = false;
+        System.out.println(this.getV_code());
+        System.out.println(this.getVerify_code());
+        System.out.println("---------------------------------------------");
         if (this.getV_code().equals(this.getVerify_code())) {
             returnKey = true;
         }

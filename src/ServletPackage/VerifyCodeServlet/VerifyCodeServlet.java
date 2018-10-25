@@ -24,12 +24,13 @@ public class VerifyCodeServlet extends HttpServlet {
         //获得图片的文本内容
         String text = vc.getText();
         //打印获取的内容
-        System.out.println(text);
+        //System.out.println(text);
         // 将系统生成的文本内容保存到session中
         HttpSession httpSession = request.getSession();
         String string = (String) httpSession.getAttribute("test");
         System.out.println("在验证码中：" + string);
         httpSession.setAttribute("verify_code_server", text);
+        System.out.println(text);
         //向浏览器输出图片
         vc.output(bi, response.getOutputStream());
     }

@@ -1634,6 +1634,7 @@ public class DD {
     }
 
     public static void main(String[] args) {
-        new DD().setBool();
+        System.out.println("aaaaa".hashCode());
+        //new DD().setBool();
     }
 }

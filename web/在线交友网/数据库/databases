@@ -49,3 +49,27 @@ insert into privince_number_table(privince_id, today, number) values (30, '2018-
 insert into privince_number_table(privince_id, today, number) values (31, '2018-10-25', 0);
 insert into privince_number_table(privince_id, today, number) values (32, '2018-10-25', 0);
 insert into privince_number_table(privince_id, today, number) values (33, '2018-10-25', 0);
+
+
+-- 用户数据库
+create table user
+(
+  -- 用户ID
+  user_id varchar(20) primary key ,
+  -- 用户名
+  user_name varchar(20) ,
+  -- 密码值
+  user_password_value varchar(30) ,
+  -- 电子邮件
+  user_email varchar(30) ,
+  -- 性别
+  user_sex varchar(5) ,
+  -- 电话号码
+  user_phone varchar(15) ,
+  -- 省份编号
+  user_privince int ,
+  -- 创建日期
+  user_create_date date ,
+  -- 创建时间
+  user_create_time time
+);

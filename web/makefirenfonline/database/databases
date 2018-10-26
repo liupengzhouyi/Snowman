@@ -1,20 +1,3 @@
-create table privince_table
-(
-  provices_id int primary key ,
-  provices_name varchar(20)
-);
-
--- 获取当前注册 编号
-create table privince_number_table
-(
-  privince_id int primary key ,
-  today date ,
-  number int
-);
-
-select *
-from privince_number_table;
-
 insert into privince_number_table(privince_id, today, number) values (0, '2018-10-25', 0);
 insert into privince_number_table(privince_id, today, number) values (1, '2018-10-25', 0);
 insert into privince_number_table(privince_id, today, number) values (2, '2018-10-25', 0);
@@ -51,7 +34,10 @@ insert into privince_number_table(privince_id, today, number) values (32, '2018-
 insert into privince_number_table(privince_id, today, number) values (33, '2018-10-25', 0);
 
 
--- 用户数据库
+create database make_friend_by_java;
+
+use make_friend_by_java;
+
 create table user
 (
   -- 用户ID
@@ -73,3 +59,47 @@ create table user
   -- 创建时间
   user_create_time time
 );
+
+select * from user;
+
+-- 省份编号
+create table privince_table
+(
+  -- 省份编号
+  provices_id int primary key ,
+  -- 省份名称
+  provices_name varchar(20)
+);
+
+select * from privince_table;
+
+-- 获取当前注册 编号
+create table privince_number_table
+(
+  privince_id int primary key ,
+  today date ,
+  number int
+);
+
+select * from privince_number_table;
+
+-- 我的好友列表
+create table my_friends
+(
+  -- 好友编号
+  friend_id      int primary key,
+  -- 我的ID
+  my_id          varchar(20),
+  -- 好友ID
+  my_friend_id   varchar(20),
+  -- 我的好友叫I
+  my_name        varchar(20),
+  -- 我的好友叫II
+  my_friend_name varchar(20),
+  -- 建立好友时间
+  friend_date    date,
+  -- 关系是否存在 0 否 1 在
+  friendship     int
+);
+
+select * from my_friends;

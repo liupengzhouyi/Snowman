@@ -54,6 +54,18 @@
                 </conter>
             </td>
         </tr>
+        <tr style="background: #ff7c2b">
+            <th content="1">
+                <center>
+                    好友昵称
+                </center>
+            </th>
+            <td colspan="2">
+                <conter>
+                    <input type="text" name="friend_name" style="background: #e7eee9">
+                </conter>
+            </td>
+        </tr>
         <tr style="background: #eeebbc">
             <th>
 

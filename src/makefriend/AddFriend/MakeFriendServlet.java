@@ -1,5 +1,6 @@
 package makefriend.AddFriend;
 
+import makefriend.CreateID.getNowTime;
 import makefriend.JavaBean.friend_is_exist;
 
 import javax.servlet.ServletException;
@@ -39,10 +40,18 @@ public class MakeFriendServlet extends HttpServlet {
         }
         if (key == true) {
             //如果存在，提交好友申请信息，入库
+            getNowTime lpGetNowTime = new getNowTime();
+            String time = lpGetNowTime.getTime();
+            String date = lpGetNowTime.getDate();
+            String my_friend_name = request.getParameter("friend_name");
+
+            String sql = "";
+
+
 
         } else {
             //如果不存在，返回错误信息
-            response.sendRedirect("/");
+            response.sendRedirect("/makefirenfonline/errorPage/make_friend/noFriendUsedThisNumber/no_friend_use_this_id.jsp");
         }
     }
 

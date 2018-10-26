@@ -11,12 +11,17 @@
     <title>在线交友网</title>
 </head>
 <body>
+
 <%
     HttpSession httpSession = request.getSession();
+    String user_id = "-1";
     if (httpSession.isNew()) {
-
+        user_id = "-1";
+    } else {
+        user_id = (String) httpSession.getAttribute("user_id");
     }
 %>
+
 <table width="1300" border="0" align="center">
     <tr>
         <td colspan="2" style="background-color:#7479ff;">

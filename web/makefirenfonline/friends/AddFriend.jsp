@@ -33,7 +33,7 @@
 
 <h1><%=user_id%></h1>
 
-<form action="/makefriend/GetUserLoginInformationServlet", method="post" >
+<form action="/makefriend/AddFriend/MakeFriendServlet", method="post" >
     <table>
         <tr style="background: #8bffe9">
             <th colspan="3">

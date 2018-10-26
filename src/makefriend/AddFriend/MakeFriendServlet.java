@@ -2,6 +2,7 @@ package makefriend.AddFriend;
 
 import makefriend.CreateID.getNowTime;
 import makefriend.JavaBean.friend_is_exist;
+import makefriend.makefriendonline.linkDatabases;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,16 +42,41 @@ public class MakeFriendServlet extends HttpServlet {
         if (key == true) {
             //如果存在，提交好友申请信息，入库
             getNowTime lpGetNowTime = new getNowTime();
-            String time = lpGetNowTime.getTime();
+            //String time = lpGetNowTime.getTime();
             String date = lpGetNowTime.getDate();
             String my_friend_name = request.getParameter("friend_name");
-
-            String sql = "";
-
-
-
+            //SQL 语句
+            String str = "insert into my_friends " +
+                    "(friend_id, my_id, my_friend_id, my_name, " +
+                    "my_friend_name, friend_date, friendship) " +
+                    "values (1, \\\'" + my_id + "\\\', \\\'" + friend_id + "\\\', \\\'" +
+                    "#M#Y#N#A#M#E" + "\\\', \\\'" + my_friend_name + "\\\', \\\'" + date + "\\\', 1);";
+            //好友申请数据
+            String sql = "insert into apply_for_friend" +
+                    "(apply_id, friend_number, my_number, my_sql, new_key) " +
+                    "values (" + 1 + ", \'" + friend_id + "\', \'" + my_id + "\', \'" + str + "\', " + 0 + ");";
+            //好友申请数据入库
+            boolean keyOfFriendShip = false;
+            try {
+                new linkDatabases().saveData(sql);
+                keyOfFriendShip = true;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            if (keyOfFriendShip == false) {
+                //返回错误信息
+                //好友申请失败
+                response.sendRedirect("/makefirenfonline/errorPage/make_friend/mekeFriendBeDefeated/connotInputDataInDatabase.jsp");
+            } else {
+                //好友申请成功
+                //提示好友申请完成，等待对象验证
+                response.sendRedirect("/makefirenfonline/success/makeFriend/BeDatalnDatabase.jsp");
+            }
         } else {
-            //如果不存在，返回错误信息
+            //如果不存在，
+            //返回错误信息，没有该用户
             response.sendRedirect("/makefirenfonline/errorPage/make_friend/noFriendUsedThisNumber/no_friend_use_this_id.jsp");
         }
     }

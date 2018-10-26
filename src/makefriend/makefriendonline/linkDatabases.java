@@ -65,6 +65,7 @@ public class linkDatabases {
         } else {
             String string = str;
             //string = "INSERT INTO user (lp_id, lp_name, lp_password) VALUES (1809120006,1234,1234);";
+            System.out.println(string);
             this.statement.execute(string);
             return true;
         }

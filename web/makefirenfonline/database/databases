@@ -103,3 +103,25 @@ create table my_friends
 );
 
 select * from my_friends;
+
+- 好友申请表
+create table apply_for_friend
+(
+  -- 编号
+  apply_id      int primary key auto_increment,
+  -- 好友编号
+  friend_number varchar(20),
+  -- 我的编号
+  my_number     varchar(20),
+  -- sql语句
+  my_sql        varchar(1000),
+  -- 是否为最新数据
+  new_key       int
+);
+
+insert into apply_for_friend(apply_id, friend_number, my_number, my_sql, new_key) values (1, '201810262300103', '201810262700104', 'insert into my_friends(friend_id, my_id, my_friend_id, my_name, my_friend_name, friend_date, friendship) values (1, \'201810262700104\', \'201810262300103\', \'#M#Y#N#A#M#E\', \'sun\', \'2018-10-27\', 1);', 0);
+
+drop table apply_for_friend;
+
+select * from apply_for_friend;
+

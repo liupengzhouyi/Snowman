@@ -30,10 +30,10 @@
         //提交表单数据，判断你的好友，如果你的好友存在，我们会给他发送一个信息。
     }
 %>
+
 <h1><%=user_id%></h1>
 
-
-<form action="", method="post" >
+<form action="/makefriend/GetUserLoginInformationServlet", method="post" >
     <table>
         <tr style="background: #8bffe9">
             <th colspan="3">

@@ -11,7 +11,7 @@
     <title>在线交友网登录</title>
 </head>
 <body>
-<form action="/makefriend/GetUserInformationServlet" method="post">
+<form action="/makefriend/GetUserLoginInformationServlet" method="post">
     <table border="1">
         <tr>
             <th colspan="3">
@@ -63,5 +63,16 @@
         </tr>
     </table>
 </form>
+
+<script type="text/javascript">
+    document.getElementById("lp_button").onclick = function () {
+        // 获取img元素
+        // 为了让浏览器发送请求到servlet, 所以一定要改变src
+        document.getElementsByTagName("img")[0].src = "/ServletPackage/VerifyCodeServlet/VerifyCodeServlet"
+            + "?time=" + new Date().getTime();
+        ///day_1_12/VerifyCodeServlet?time=
+    };
+</script>
+
 </body>
 </html>

@@ -142,7 +142,7 @@ public class GetUserLoginInformationServlet extends HttpServlet {
     public void gotoError(int kind, HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession httpSession = request.getSession();
         //创建回话，保存错误类型
-        httpSession.setAttribute("error",kind);
+        httpSession.setAttribute("error",kind + "");
         //跳转页面
         response.sendRedirect("/makefirenfonline/errorPage/login/error.jsp");
     }

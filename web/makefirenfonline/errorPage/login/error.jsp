@@ -24,12 +24,14 @@
     }
 %>
 <h1>
-    <%=errorInformation%>
+    <center>
+        <%=errorInformation%>
+    </center>
 </h1>
 <hr>
 <p>
     <center>
-    <a href="">点我返回</a>
+    <a href="/makefirenfonline/login/index.jsp">点我返回</a>
 </center>
 </p>
 </body>

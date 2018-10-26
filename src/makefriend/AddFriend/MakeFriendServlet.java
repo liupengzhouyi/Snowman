@@ -46,12 +46,22 @@ public class MakeFriendServlet extends HttpServlet {
             String date = lpGetNowTime.getDate();
             String my_friend_name = request.getParameter("friend_name");
             //SQL 语句
-            String str = "insert into my_friends " +
+            //第一次申请，以后的每一次都 自增
+            /*String str = "insert into my_friends " +
                     "(friend_id, my_id, my_friend_id, my_name, " +
                     "my_friend_name, friend_date, friendship) " +
                     "values (1, \\\'" + my_id + "\\\', \\\'" + friend_id + "\\\', \\\'" +
+                    "#M#Y#N#A#M#E" + "\\\', \\\'" + my_friend_name + "\\\', \\\'" + date + "\\\', 1);";*/
+            String str = "insert into my_friends " +
+                    "(my_id, my_friend_id, my_name, " +
+                    "my_friend_name, friend_date, friendship) " +
+                    "values (\\\'" + my_id + "\\\', \\\'" + friend_id + "\\\', \\\'" +
                     "#M#Y#N#A#M#E" + "\\\', \\\'" + my_friend_name + "\\\', \\\'" + date + "\\\', 1);";
             //好友申请数据
+            //第一次申请，以后的每一次都 自增
+            /*String sql = "insert into apply_for_friend" +
+                    "(apply_id, friend_number, my_number, my_sql, new_key) " +
+                    "values (" + 1 + ", \'" + friend_id + "\', \'" + my_id + "\', \'" + str + "\', " + 0 + ");";*/
             String sql = "insert into apply_for_friend" +
                     "(apply_id, friend_number, my_number, my_sql, new_key) " +
                     "values (" + 1 + ", \'" + friend_id + "\', \'" + my_id + "\', \'" + str + "\', " + 0 + ");";

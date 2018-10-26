@@ -11,6 +11,12 @@
     <title>在线交友网</title>
 </head>
 <body>
+<%
+    HttpSession httpSession = request.getSession();
+    if (httpSession.isNew()) {
+
+    }
+%>
 <table width="1300" border="0" align="center">
     <tr>
         <td colspan="2" style="background-color:#7479ff;">

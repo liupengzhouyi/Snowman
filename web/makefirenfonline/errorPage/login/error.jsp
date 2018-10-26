@@ -23,6 +23,7 @@
         errorInformation = "没有该用户";
     }
 %>
+
 <h1>
     <center>
         <%=errorInformation%>

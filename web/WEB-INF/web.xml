@@ -270,4 +270,14 @@
         <servlet-name>MakeFriendServlet</servlet-name>
         <url-pattern>/makefriend/AddFriend/MakeFriendServlet</url-pattern>
     </servlet-mapping>
+
+    <!--获取好友申请-->
+    <servlet>
+        <servlet-name>GetFriendRequestServlet</servlet-name>
+        <servlet-class>makefriend.AddFriend.GetFriendRequestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetFriendRequestServlet</servlet-name>
+        <url-pattern>/makefriend/AddFriend/GetFriendRequestServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

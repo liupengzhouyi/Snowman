@@ -46,9 +46,11 @@ public class GetFriendRequestServlet extends HttpServlet {
             // 2. 获取数据
             // 2.1 创建数据库连接类
             try {
-                // friend_name -> friend_id -> sql
-                Map<String, String> nameToId = new HashMap<String, String>();
+                // friend_id -> friend_friend -> sql
+                Map<String, String> idToName = new HashMap<String, String>();
                 Map<String, String> idToSql = new HashMap<String, String>();
+                //储存数据
+                ArrayList friendID = new ArrayList();
                 //统计好友申请数量, 同时也是一个判断是否拥有好友的键值
                 int number = 0;
                 linkDatabases linkDatabases = new linkDatabases();
@@ -65,8 +67,9 @@ public class GetFriendRequestServlet extends HttpServlet {
                     addFriendSql = resultSet.getString("my_sql");
                     friend_id = resultSet.getString("my_number");
                     friend_name = this.getFriendNameByFriendName(friend_id);
+                    friendID.add(friend_id);
                     //信息添加
-                    nameToId.put(friend_name, friend_id);
+                    idToName.put(friend_id, friend_name);
                     idToSql.put(friend_id, addFriendSql);
                     //好友申请数量加一
                     number = number + 1;
@@ -83,15 +86,35 @@ public class GetFriendRequestServlet extends HttpServlet {
                             "</h1>");
                 } else {
                     //如果有
+                    PrintWriter out = response.getWriter();
+                    out.println("<table>");
+                    //
                     // 列表
-
+                    for(int i=0;i<number;i++) {
+                        out.println("<tr>");
+                        String tempName = idToName.get(friendID.get(i).toString());
+                        String tempId = friendID.get(i).toString();
+                        String tempSql = idToSql.get(friendID.get(i).toString());
+                        /*System.out.println("好友名称，" + idToName.get(friendID.get(i).toString()));
+                        System.out.println("好友ID：" + friendID.get(i).toString());
+                        System.out.println("好友SQL" + idToSql.get(friendID.get(i).toString()));*/
+                        out.println("<th>");
+                        out.println(friendID.get(i).toString());
+                        out.println("</th>");
+                        out.println("<th>");
+                        out.println(idToName.get(friendID.get(i).toString()));
+                        out.println("</th>");
+                        out.println("</tr>");
+                    }
+                    out.println("</table>");
+                    //更新数据表，消除好友申请最新状态
                 }
             } catch (ClassNotFoundException e) {
-                //跳转错误页面
-
+                //跳转错误页面. 获取数据出错
+                response.sendRedirect("/makefirenfonline/contactUs/yourProblem.jsp");
             } catch (SQLException e) {
                 //跳转错误页面
-
+                response.sendRedirect("/makefirenfonline/contactUs/yourProblem.jsp");
                 e.printStackTrace();
             }
         }

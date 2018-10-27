@@ -63,8 +63,8 @@ public class MakeFriendServlet extends HttpServlet {
                     "(apply_id, friend_number, my_number, my_sql, new_key) " +
                     "values (" + 1 + ", \'" + friend_id + "\', \'" + my_id + "\', \'" + str + "\', " + 0 + ");";*/
             String sql = "insert into apply_for_friend" +
-                    "(apply_id, friend_number, my_number, my_sql, new_key) " +
-                    "values (" + 1 + ", \'" + friend_id + "\', \'" + my_id + "\', \'" + str + "\', " + 0 + ");";
+                    "(friend_number, my_number, my_sql, new_key) " +
+                    "values (" + "\'" + friend_id + "\', \'" + my_id + "\', \'" + str + "\', " + 0 + ");";
             //好友申请数据入库
             boolean keyOfFriendShip = false;
             try {

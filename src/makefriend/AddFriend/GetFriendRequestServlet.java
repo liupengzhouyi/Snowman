@@ -86,8 +86,10 @@ public class GetFriendRequestServlet extends HttpServlet {
                             "</h1>");
                 } else {
                     //如果有
+                    httpSession.setAttribute("number_of_friend", number + "");
                     PrintWriter out = response.getWriter();
-                    out.println("<table>");
+                    out.println("<form action=\"/makefriend/AddFriend/AddFriendShipServlet\" method=\"post\">\n" +
+                                "    <table border=\"1\">");
                     //
                     // 列表
                     for(int i=0;i<number;i++) {
@@ -95,18 +97,36 @@ public class GetFriendRequestServlet extends HttpServlet {
                         String tempName = idToName.get(friendID.get(i).toString());
                         String tempId = friendID.get(i).toString();
                         String tempSql = idToSql.get(friendID.get(i).toString());
+                        //拒绝好友申请
+                        String tempIdI = tempId + "0";
+                        //同意好友申请
+                        String tempIdII = tempId + "1";
+                        String name = "friend_ids_" + i;
                         /*System.out.println("好友名称，" + idToName.get(friendID.get(i).toString()));
                         System.out.println("好友ID：" + friendID.get(i).toString());
                         System.out.println("好友SQL" + idToSql.get(friendID.get(i).toString()));*/
                         out.println("<th>");
                         out.println(friendID.get(i).toString());
                         out.println("</th>");
-                        out.println("<th>");
+                        out.println("<td>");
                         out.println(idToName.get(friendID.get(i).toString()));
-                        out.println("</th>");
+                        out.println("</td>");
+                        out.println("<td>");
+                        out.println("同意<input type=\"radio\" value=\"" + tempIdII + "\" name=\"" + name + "\">");
+                        out.println("拒绝<input type=\"radio\" value=\"" + tempIdI + "\" name=\""+ name + "\">");
+                        out.println("</td>");
                         out.println("</tr>");
                     }
-                    out.println("</table>");
+                    out.println("        <tr>\n" +
+                                "            <th>\n" +
+                                "                <input type=\"reset\" value=\"重置\">\n" +
+                                "            </th>\n" +
+                                "            <th>\n" +
+                                "                <input type=\"submit\" value=\"提交\">\n" +
+                                "            </th>\n" +
+                                "        </tr>\n" +
+                                "    </table>\n" +
+                                "</form>");
                     //更新数据表，消除好友申请最新状态
                 }
             } catch (ClassNotFoundException e) {

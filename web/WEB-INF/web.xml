@@ -280,4 +280,13 @@
         <servlet-name>GetFriendRequestServlet</servlet-name>
         <url-pattern>/makefriend/AddFriend/GetFriendRequestServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddFriendShipServlet</servlet-name>
+        <servlet-class>makefriend.AddFriend.AddFriendShipServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddFriendShipServlet</servlet-name>
+        <url-pattern>/makefriend/AddFriend/AddFriendShipServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

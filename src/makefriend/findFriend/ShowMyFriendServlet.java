@@ -1,4 +1,4 @@
-package makefriend.AddFriend;
+package makefriend.findFriend;
 
 import makefriend.makefriendonline.linkDatabases;
 
@@ -13,8 +13,8 @@ import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@WebServlet(name = "GetMyAppleFriendInformationServlet")
-public class GetMyAppleFriendInformationServlet extends HttpServlet {
+@WebServlet(name = "ShowMyFriendServlet")
+public class ShowMyFriendServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //获取当前的Session
         HttpSession httpSession = request.getSession();
@@ -42,7 +42,7 @@ public class GetMyAppleFriendInformationServlet extends HttpServlet {
                     sql = friend_id + "编号的好友，好像对您不感兴趣！";
                 }
                 if (sql == "null") {
-                    out.println("<h3>" + "没有消息" + "</h3>");
+                    out.println("<h3>" + "没有好友" + "</h3>");
                 } else {
                     out.println("<h3>" + sql + "</h3>");
                 }
@@ -62,4 +62,3 @@ public class GetMyAppleFriendInformationServlet extends HttpServlet {
         doPost(request, response);
     }
 }
-//201810282700103

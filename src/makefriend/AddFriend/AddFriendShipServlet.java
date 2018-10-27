@@ -19,6 +19,9 @@ import java.util.Map;
 @WebServlet(name = "AddFriendShipServlet")
 public class AddFriendShipServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //通过设置响应头控制浏览器以UTF-8的编码显示数据，如果不加这句话，那么浏览器显示的将是乱码
+        response.setContentType("text/html;charset=UTF-8");
+
         PrintWriter out = response.getWriter();
 
         HttpSession httpSession = request.getSession();
@@ -78,21 +81,21 @@ public class AddFriendShipServlet extends HttpServlet {
                     lpLinkDatabases.saveData(this_sql);
                     //给好友发送申请通过通知
                     //第一次生产 自增开始
-                    String new_sql = "insert into apply_return(return_id, my_id, friend_id, can_make) " +
-                            "values (1, \'" + friend_id + "\', \'" + user_id + "\', 1);";
+                    /*String new_sql = "insert into apply_return(return_id, my_id, friend_id, can_make) " +
+                            "values (1, \'" + friend_id + "\', \'" + user_id + "\', 1);";*/
                     //非第一次
-                    /*String new_sql = "insert into apply_return(my_id, friend_id, can_make) " +
-                            "values (\'" + friend_id + "\', \'" + user_id + "\', 1);";*/
+                    String new_sql = "insert into apply_return(my_id, friend_id, can_make) " +
+                            "values (\'" + friend_id + "\', \'" + user_id + "\', 1);";
                     lpLinkDatabases.saveData(new_sql);
                     out.println(friend_id +  "<h3>用户！友谊的小桥建立完成</h3>");
                 } else {
                     //不同意
                     //给好友发送申请不通过通知
-                    String new_sql = "insert into apply_return(return_id, my_id, friend_id, can_make) " +
-                            "values (1, \'" + friend_id + "\', \'" + user_id + "\', 0);";
+                    /*String new_sql = "insert into apply_return(return_id, my_id, friend_id, can_make) " +
+                            "values (1, \'" + friend_id + "\', \'" + user_id + "\', 0);";*/
                     //非第一次
-                    /*String new_sql = "insert into apply_return(my_id, friend_id, can_make) " +
-                            "values (\'" + friend_id + "\', \'" + user_id + "\', 0);";*/
+                    String new_sql = "insert into apply_return(my_id, friend_id, can_make) " +
+                            "values (\'" + friend_id + "\', \'" + user_id + "\', 0);";
                     lpLinkDatabases.saveData(new_sql);
                     out.println(friend_id +  "<h3>用户！友谊的小桥暂时未建立</h3>");
                 }

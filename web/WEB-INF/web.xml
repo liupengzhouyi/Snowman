@@ -289,4 +289,13 @@
         <servlet-name>AddFriendShipServlet</servlet-name>
         <url-pattern>/makefriend/AddFriend/AddFriendShipServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetMyAppleFriendInformationServlet</servlet-name>
+        <servlet-class>makefriend.AddFriend.GetMyAppleFriendInformationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetMyAppleFriendInformationServlet</servlet-name>
+        <url-pattern>/makefriend/AddFriend/GetMyAppleFriendInformationServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

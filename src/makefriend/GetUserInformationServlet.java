@@ -33,13 +33,11 @@ public class GetUserInformationServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //通过设置响应头控制浏览器以UTF-8的编码显示数据，如果不加这句话，那么浏览器显示的将是乱码
         response.setContentType("text/html;charset=UTF-8");
 
         this.init();
         HttpSession httpSession = request.getSession();
-
-        //通过设置响应头控制浏览器以UTF-8的编码显示数据，如果不加这句话，那么浏览器显示的将是乱码
-
 
         //获取用户电子邮件
         String user_email = request.getParameter("user_email");

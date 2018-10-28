@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 @WebServlet(name = "ShowMyFriendServlet")
 public class ShowMyFriendServlet extends HttpServlet {
@@ -24,29 +26,34 @@ public class ShowMyFriendServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         //生产你的SQL语句
-        String sqlsql = "select * from apply_return where my_id = \'" + user_id + "\';";
+
+        ArrayList<String> friendList = new ArrayList<String>();
+        boolean keyOfLinkdatabase = false;
+        String sqlI = "select * from my_friends where my_id = \'" + user_id + "\' and friendship = 1;";
+        String sqlII = "select * from my_friends where my_friend_id = \'" + user_id + "\' and friendship = 1;";
+
         try {
             linkDatabases lpLinkDatabases = new linkDatabases();
-            ResultSet resultSet = lpLinkDatabases.getInformation(sqlsql);
-            String sql = "null";
+            ResultSet resultSet = lpLinkDatabases.getInformation(sqlI);
+
             while(resultSet.next()) {
                 //好友编号
-                String friend_id = resultSet.getString("friend_id");
-                //好友的态度
-                int friend_activita = resultSet.getInt("can_make");
-                if (friend_activita == 1) {
-                    //同意
-                    sql = friend_id + "编号的好友，与您建立了友谊的小桥！";
-                } else {
-                    //不同意
-                    sql = friend_id + "编号的好友，好像对您不感兴趣！";
-                }
-                if (sql == "null") {
-                    out.println("<h3>" + "没有好友" + "</h3>");
-                } else {
-                    out.println("<h3>" + sql + "</h3>");
-                }
+                String friend_id = resultSet.getString("my_friend_id");
+                //System.out.println(friend_id);
+                friendList.add(friend_id);
+
             }
+            lpLinkDatabases = new linkDatabases();
+            resultSet = null;
+            resultSet = lpLinkDatabases.getInformation(sqlII);
+            keyOfLinkdatabase = true;
+            while(resultSet.next()) {
+                //好友编号
+                String friend_id = resultSet.getString("my_id");
+                //System.out.println(friend_id);
+                friendList.add(friend_id);
+            }
+
         } catch (ClassNotFoundException e) {
             // 连接数据库失败， 跳转 联系我们
             response.sendRedirect("/makefirenfonline/errorPage/make_friend/notlinkdatabase/notlinkdatabase.jsp");
@@ -55,6 +62,26 @@ public class ShowMyFriendServlet extends HttpServlet {
             // 连接数据库失败， 跳转 联系我们
             response.sendRedirect("/makefirenfonline/errorPage/make_friend/notlinkdatabase/notlinkdatabase.jsp");
             e.printStackTrace();
+        }
+
+        if (keyOfLinkdatabase == true) {
+            out.println("<table border=\"1\">\n" +
+                    "        <tr>\n" +
+                    "            <th colspan=\"2\">\n" +
+                    "                    我的好友列表\n" +
+                    "                    </th>\n" +
+                    "        </tr>");
+            for (int i=0;i<friendList.size();i++) {
+                //System.out.println(friendList.get(i));
+                out.println("<tr>\n" +
+                        "        <td>" + friendList.get(i) + "</td>\n" +
+                        "    </tr>");
+            }
+            out.println("</table>");
+        } else {
+            //连接数据库出错
+            // 连接数据库失败， 跳转 联系我们
+            response.sendRedirect("/makefirenfonline/errorPage/make_friend/notlinkdatabase/notlinkdatabase.jsp");
         }
     }
 

@@ -9,15 +9,51 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @WebServlet(name = "getMyFriendListServlet")
 public class getMyFriendListServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        PrintWriter out = response.getWriter();
         HttpSession httpSession = request.getSession();
         String user_id = (String) httpSession.getAttribute("user_id");
-        String friend_id = (String) httpSession.getAttribute("friend_id");
+        //获取提交数量
+        String temp_number = "0";
+        temp_number = (String) httpSession.getAttribute("number");
+        int number = Integer.parseInt(temp_number);
+        out.println("<table border=\"1\">");
+        for(int i=0;i<number;i++) {
+            String getValueKey = "friend_id_" + i;
+            String friend_id = request.getParameter(getValueKey);
+            boolean friendShipKey = this.getWhichDo(friend_id);
+            friend_id = this.getFriendId(friend_id);
+            if (friendShipKey == true) {
+                //断绝关系
+                try {
+                    this.findMyFriend(user_id, friend_id);
+                    //显示断绝关系
+                    out.println("<tr>\n" +
+                                "            <h1>\n" +
+                                "                断绝好友关系\n" +
+                                "            </h1>\n" +
+                                "        </tr>");
+                } catch (ClassNotFoundException e) {
+
+                    e.printStackTrace();
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    //断绝关系出错
+                }
+            } else {
+                //保持关系，不处理
+            }
+        }
+        out.println("</table>");
+        //String friend_id = (String) httpSession.getAttribute("friend_id");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -58,4 +94,36 @@ public class getMyFriendListServlet extends HttpServlet {
         }
         return returnKey;
     }
+
+    /**
+     * 返回尾数的标示
+     * 1。 同意好友申请，true
+     * 2。 拒绝好友申请， false
+     * @param friend_id
+     * @return
+     */
+    public boolean getWhichDo(String friend_id) {
+        boolean returnKey = false;
+        char c = friend_id.charAt(friend_id.length()-1);
+        //System.out.println("==" + c);
+        if (c == 0) {
+            returnKey = false;
+        } else {
+            returnKey = true;
+        }
+        return returnKey;
+    }
+
+    /**
+     * 除去最后一个字符，
+     * 返回
+     * @param friendId
+     * @return
+     */
+    public String getFriendId(String friendId) {
+        String friend_id = friendId.substring(0, friendId.length() - 1);
+        //System.out.println("--" + friend_id);
+        return friend_id;
+    }
+
 }

@@ -25,7 +25,7 @@
 <table width="1300" border="0" align="center">
     <tr>
         <td colspan="2" style="background-color:#7479ff;">
-            <h1 align="center">在线交友网（测试版本）</h1>
+            <h1 align="center">在线交友网（Beat版本）</h1>
         </td>
     </tr>
 </table>

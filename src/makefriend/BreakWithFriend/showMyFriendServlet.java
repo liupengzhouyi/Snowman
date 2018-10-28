@@ -51,8 +51,9 @@ public class showMyFriendServlet extends HttpServlet {
         linkDatabases lpLinkDatabases = new linkDatabases();
 
         ResultSet resultSet = lpLinkDatabases.getInformation(sqlI);
-
+        int number = 0;
         while(resultSet.next()) {
+            number = number + 1;
             //好友编号
             String friend_id = resultSet.getString("my_friend_id");
             //System.out.println(friend_id);
@@ -63,6 +64,7 @@ public class showMyFriendServlet extends HttpServlet {
         resultSet = null;
         resultSet = lpLinkDatabases.getInformation(sqlII);
         while(resultSet.next()) {
+            number = number + 1;
             //好友编号
             String friend_id = resultSet.getString("my_id");
             //System.out.println(friend_id);
@@ -71,19 +73,34 @@ public class showMyFriendServlet extends HttpServlet {
         }
 
         if (keyOfLinkdatabase == true) {
-            out.println("<table border=\"1\">\n" +
-                    "        <tr>\n" +
-                    "            <th colspan=\"2\">\n" +
-                    "                    我的好友列表\n" +
-                    "                    </th>\n" +
-                    "        </tr>");
+            httpSession.setAttribute("number", "" + number);
+            out.println("<form action=\"/makefriend/BreakWithFriend/getMyFriendListServlet\" method=\"post\">\n" +
+                        "    <table border=\"1\">\n" +
+                        "        <tr>\n" +
+                        "            <th colspan=\"2\">\n" +
+                        "                我的好友列表\n" +
+                        "            </th>\n" +
+                        "        </tr>");
             for (int i=0;i<friendList.size();i++) {
                 //System.out.println(friendList.get(i));
+                String friend_id = friendList.get(1);
+                //断绝关系的标示
+                String friend_id_i = friend_id + "1";
+                //保持关系的标示
+                String friend_id_ii = friend_id + "0";
+                String friend_id_s = "friend_id_" + i;
                 out.println("<tr>\n" +
-                        "        <td>" + friendList.get(i) + "</td>\n" +
-                        "    </tr>");
+                            "    <td>\n" +
+                            "        " + friend_id +
+                            "    </td>\n" +
+                            "    <td>\n" +
+                            "        划清界限<input type=\"radio\" name=\"" + friend_id_s + "\" value=\"" + friend_id_i + "\">\n" +
+                            "        保持关系<input type=\"radio\" name=\"" + friend_id_s + "\" value=\"" + friend_id_ii + "\">\n" +
+                            "    </td>\n" +
+                            "</tr>");
             }
-            out.println("</table>");
+            out.println("   </table>\n" +
+                         "</form>");
         } else {
             //连接数据库出错
             // 连接数据库失败， 跳转 联系我们

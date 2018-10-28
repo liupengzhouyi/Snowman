@@ -307,4 +307,22 @@
         <servlet-name>ShowMyFriendServlet</servlet-name>
         <url-pattern>/makefriend/findFriend/ShowMyFriendServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getMyFriendListServlet</servlet-name>
+        <servlet-class>makefriend.BreakWithFriend.getMyFriendListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getMyFriendListServlet</servlet-name>
+        <url-pattern>/makefriend/BreakWithFriend/getMyFriendListServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>showMyFriendServlet</servlet-name>
+        <servlet-class>makefriend.BreakWithFriend.showMyFriendServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>showMyFriendServlet</servlet-name>
+        <url-pattern></url-pattern>
+    </servlet-mapping>
 </web-app>

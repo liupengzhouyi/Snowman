@@ -86,8 +86,6 @@ public class getMyFriendListServlet extends HttpServlet {
 
         sql = "update my_friends set friendship = 0 where friend_id = " + friend_ship_id + ";";
 
-
-
         if (friend_ship_id == -1) {
             //没有获取到建立友谊表中的编号
             returnKey = -1;

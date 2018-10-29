@@ -83,7 +83,7 @@ public class showMyFriendServlet extends HttpServlet {
                         "        </tr>");
             for (int i=0;i<friendList.size();i++) {
                 //System.out.println(friendList.get(i));
-                String friend_id = friendList.get(1);
+                String friend_id = friendList.get(i);
                 //断绝关系的标示
                 String friend_id_i = friend_id + "1";
                 //保持关系的标示
@@ -98,7 +98,16 @@ public class showMyFriendServlet extends HttpServlet {
                             "        保持关系<input type=\"radio\" name=\"" + friend_id_s + "\" value=\"" + friend_id_ii + "\">\n" +
                             "    </td>\n" +
                             "</tr>");
+
             }
+            out.println("        <tr>\n" +
+                        "            <td>\n" +
+                        "                <input type=\"reset\" value=\"重置\">\n" +
+                        "            </td>\n" +
+                        "            <td>\n" +
+                        "                <input type=\"submit\" value=\"提交\">\n" +
+                        "            </td>\n" +
+                        "        </tr>");
             out.println("   </table>\n" +
                          "</form>");
         } else {

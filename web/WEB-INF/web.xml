@@ -323,6 +323,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>showMyFriendServlet</servlet-name>
-        <url-pattern></url-pattern>
+        <url-pattern>/makefriend/BreakWithFriend/showMyFriendServlet</url-pattern>
     </servlet-mapping>
 </web-app>

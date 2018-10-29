@@ -16,7 +16,8 @@ import java.sql.SQLException;
 @WebServlet(name = "getMyFriendListServlet")
 public class getMyFriendListServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        //通过设置响应头控制浏览器以UTF-8的编码显示数据，如果不加这句话，那么浏览器显示的将是乱码
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         HttpSession httpSession = request.getSession();
         String user_id = (String) httpSession.getAttribute("user_id");
@@ -36,7 +37,7 @@ public class getMyFriendListServlet extends HttpServlet {
                     this.findMyFriend(user_id, friend_id);
                     //显示断绝关系
                     out.println("<tr>\n" +
-                                "            <h1>\n" +
+                                "            <h1>\n" + friend_id +
                                 "                断绝好友关系\n" +
                                 "            </h1>\n" +
                                 "        </tr>");
@@ -74,8 +75,9 @@ public class getMyFriendListServlet extends HttpServlet {
         linkDatabases lpLinkDatabases = new linkDatabases();
         //获取建立友谊的编号
         String sql = "select friend_id from my_friends where " +
-                "(my_id = \'" + user_id + "\' and friend_id = \'" + friend_id + "\') " +
-                "or (my_id = \'" + user_id + "\' and friend_id = \'" + friend_id + "\');";
+                "(my_id = \'" + user_id + "\' and my_friend_id = \'" + friend_id + "\') " +
+                "or (my_id = \'" + friend_id + "\' and my_friend_id = \'" + user_id + "\');";
+        System.out.println(sql);
         ResultSet resultSet = lpLinkDatabases.getInformation(sql);
         int friend_ship_id = -1;
         while(resultSet.next()) {
@@ -83,6 +85,8 @@ public class getMyFriendListServlet extends HttpServlet {
         }
 
         sql = "update my_friends set friendship = 0 where friend_id = " + friend_ship_id + ";";
+
+
 
         if (friend_ship_id == -1) {
             //没有获取到建立友谊表中的编号
@@ -105,8 +109,8 @@ public class getMyFriendListServlet extends HttpServlet {
     public boolean getWhichDo(String friend_id) {
         boolean returnKey = false;
         char c = friend_id.charAt(friend_id.length()-1);
-        //System.out.println("==" + c);
-        if (c == 0) {
+        System.out.println("==" + c);
+        if (c == '0') {
             returnKey = false;
         } else {
             returnKey = true;

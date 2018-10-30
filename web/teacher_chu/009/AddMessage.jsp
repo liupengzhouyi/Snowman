@@ -11,7 +11,7 @@
     <title>网络留言本</title>
 </head>
 <body>
-<form method="post">
+<form action="/teacher_chu/work009/getServletServlet" method="post">
     姓名：
     <input type="text" name="name" value=""><br>
     电话：

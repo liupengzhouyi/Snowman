@@ -12,5 +12,7 @@
 </head>
 <body>
 <a href="test/test_for_getyourinformation/loginPage.jsp">aaaaaaaaaa</a>
+
+<table border="1"></table>
 </body>
 </html>

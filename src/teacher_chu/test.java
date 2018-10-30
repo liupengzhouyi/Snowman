@@ -78,10 +78,11 @@ public class test {
             QueryRunner qr = new QueryRunner();
             List results = (List) qr.query(con,"select * from user;",new MapListHandler());
             for(int i=0;i<results.size();i++) {
+
                 Map map = (Map)results.get(i);
                 System.out.println(map.toString());
-                System.out.println("id:" + map.get("user_id") + "; name:" + map.get("user_name"));
-                //System.out.println("id="+map.get("l_id")+"    "+"name="+map.get("l_name"));
+                System.out.println("id="+map.get("lp_id")+"    "+"name="+map.get("lp_name"));
+
             }
 
         }catch(SQLException e){

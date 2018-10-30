@@ -1,4 +1,4 @@
-package teacher_chu.work008;
+package teacher_chu.work009;
 
 import teacher_chu.javaBean.GuestBook;
 
@@ -18,7 +18,7 @@ public class getServletServlet extends HttpServlet {
          String title = request.getParameter("title");
          String content = request.getParameter("content");
 
-        GuestBook guestBook = new GuestBook(name, phone, email, title, content);
+        //GuestBook guestBook = new GuestBook(name, phone, email, title, content);
 
         String sql = "insert into guestbook(name, phone, email, title, content, time) " +
                 "VALUES (\'"+ name + "\', \'" + phone + "\', \'" + email + "\', " +

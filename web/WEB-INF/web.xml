@@ -346,7 +346,7 @@
 
     <servlet>
         <servlet-name>getServletServlet</servlet-name>
-        <servlet-class>teacher_chu.work008.getServletServlet</servlet-class>
+        <servlet-class>teacher_chu.work009.getServletServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>getServletServlet</servlet-name>

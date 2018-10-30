@@ -2,7 +2,12 @@ package teacher_chu.javaBean;
 
 public class GuestBook {
 
+    /*public GuestBook() {
+        init();
+    }
+
     public GuestBook(String name, String phone, String email, String title, String content) {
+        init();
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -10,12 +15,43 @@ public class GuestBook {
         this.content = content;
     }
 
-    public void inti() {
+    public GuestBook(String id, String name, String phone, String email, String title, String content) {
+        init();
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.title = title;
+        this.content = content;
+    }
+
+    public GuestBook(String id, String name, String phone, String email, String title, String content, String time) {
+        init();
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.title = title;
+        this.content = content;
+        this.time = time;
+    }
+
+    public void init() {
+        this.id = new String();
         this.name = new String();
         this.phone = new String();
         this.title = new String();
         this.email = new String();
         this.content = new String();
+        this.time = new String();
+    }*/
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -26,7 +62,7 @@ public class GuestBook {
         this.name = name;
     }
 
-    public String getPhone() {
+    /*public String getPhone() {
         return phone;
     }
 
@@ -58,9 +94,19 @@ public class GuestBook {
         this.content = content;
     }
 
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }*/
+
+    private Integer id = 0;
     private String name = null;
-    private String phone =null;
+    /*private String phone =null;
     private String email = null;
     private String title = null;
     private String content = null;
+    private String time = null;*/
 }

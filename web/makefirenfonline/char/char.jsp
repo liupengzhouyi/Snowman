@@ -17,7 +17,7 @@
     String friend_id = (String) httpSession.getAttribute("char_friend_id");
 %>
 
-<form action="" method="post">
+<form action="/makefriend/chat/SaveCharInformationServlet" method="post">
     <table>
         <tr>
             <th>
@@ -30,7 +30,7 @@
         </tr>
         <tr>
             <td>
-                <textarea name="charInformation" id="" cols="30" rows="10"></textarea>">
+                <textarea name="charInformation" cols="30" rows="10"></textarea>">
             </td>
         </tr>
         <tr>

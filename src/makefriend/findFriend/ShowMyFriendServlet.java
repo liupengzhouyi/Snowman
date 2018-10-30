@@ -74,7 +74,9 @@ public class ShowMyFriendServlet extends HttpServlet {
             for (int i=0;i<friendList.size();i++) {
                 //System.out.println(friendList.get(i));
                 out.println("<tr>\n" +
-                        "        <td>" + friendList.get(i) + "</td>\n" +
+                        "        <td>" +
+                        "           <a href=\"/makefriend/chat/CharServlet?friend_id=" + friendList.get(i) + "\">" + friendList.get(i) + "</a>" +
+                        "        </td>\n" +
                         "    </tr>");
             }
             out.println("</table>");

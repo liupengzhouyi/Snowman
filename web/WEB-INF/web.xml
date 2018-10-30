@@ -325,4 +325,13 @@
         <servlet-name>showMyFriendServlet</servlet-name>
         <url-pattern>/makefriend/BreakWithFriend/showMyFriendServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CharServle</servlet-name>
+        <servlet-class>makefriend.chat.CharServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CharServle</servlet-name>
+        <url-pattern>/makefriend/chat/CharServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

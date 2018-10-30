@@ -45,7 +45,7 @@ public class findFriend {
         boolean returnKey = false;
         for (int i=0;i<this.friendList.size();i++) {
             System.out.println(this.friendList.get(i) + " : " + friend_id);
-            if (this.friendList.get(i) == friend_id) {
+            if (this.friendList.get(i).equals(friend_id)) {
                 returnKey = true;
             }
         }

@@ -29,17 +29,21 @@ public class CharServlet extends HttpServlet {
             if (key == true) {
                 //是好友
                 response.getWriter().println("可以聊天！");
+                //确保传入的参数是正确的
+                httpSession.setAttribute("char_friend_id", friend_id);
             } else {
                 //提示错误，没该好友
                 response.sendRedirect("/makefirenfonline/errorPage/char/nofriend.jsp");
             }
         } catch (SQLException e) {
             //连接数据库出错
-
+            // 连接数据库失败， 跳转 联系我们
+            response.sendRedirect("/makefirenfonline/errorPage/make_friend/notlinkdatabase/notlinkdatabase.jsp");
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             //连接数据库出错
-
+            // 连接数据库失败， 跳转 联系我们
+            response.sendRedirect("/makefirenfonline/errorPage/make_friend/notlinkdatabase/notlinkdatabase.jsp");
             e.printStackTrace();
         }
 

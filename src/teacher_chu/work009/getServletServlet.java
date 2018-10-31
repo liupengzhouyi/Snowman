@@ -71,6 +71,7 @@ public class getServletServlet extends HttpServlet {
                     pstmt.setString(4, title);
                     pstmt.setString(5, content);
                     pstmt.setString(6, time);
+
                     int i=pstmt.executeUpdate();
 
                     pstmt.close();

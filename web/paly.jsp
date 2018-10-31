@@ -11,8 +11,18 @@
     <title>Title</title>
 </head>
 <body>
-<a href="test/test_for_getyourinformation/loginPage.jsp">aaaaaaaaaa</a>
 
-<table border="1"></table>
+<h1>
+    <center>
+        您有3条新信息
+    </center>
+</h1>
+<hr>
+<h3>
+    <center>
+        <a href="">点我查看</a>
+    </center>
+</h3>
+
 </body>
 </html>

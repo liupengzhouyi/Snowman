@@ -27,15 +27,21 @@ public class SaveCharInformationServlet extends HttpServlet {
         //第一次
         String sql = "insert into char_information (char_id, user_id, friend_id, text, char_data_time)" +
                 "values (1, \'" + user_id + "\', \'" + friend_id + "\', \'" + text + "\', now());";
+
+        String sqlI = "insert into char_tie(tie_id, user_id, is_new) values (1, \'" + friend_id + "\', 0);\n";
         // 第二次
         /*String sql = "insert into char_information (user_id, friend_id, text, char_data_time)" +
-                "values (\'" + user_id + "\', \'" + friend_id + "\', \'" + text + "\', now());";*/
+                "values (\'" + user_id + "\', \'" + friend_id + "\', \'" + text + "\', now());";
+        String sqlI = "insert into char_tie(user_id, is_new) values (\'" + friend_id + "\', 0);\n";*/
 
         System.out.println(sql);
 
         //数据储存
         try {
+            //储存数据
             this.saveData(sql);
+            //储存提示
+            this.saveData(sqlI);
         } catch (ClassNotFoundException e) {
             //数据储存出错
 

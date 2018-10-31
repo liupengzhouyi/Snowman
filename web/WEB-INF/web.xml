@@ -372,4 +372,23 @@
         <servlet-name>setCookieServlet</servlet-name>
         <url-pattern>/teacher_chu/work011/setCookieServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetTieServlet</servlet-name>
+        <servlet-class>makefriend.chat.GetTieServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetTieServlet</servlet-name>
+        <url-pattern>/makefriend/chat/GetTieServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SelectNewInformationServlet</servlet-name>
+        <servlet-class>makefriend.chat.SelectNewInformationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SelectNewInformationServlet</servlet-name>
+        <url-pattern>/makefriend/chat/SelectNewInformationServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

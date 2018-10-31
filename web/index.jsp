@@ -20,7 +20,7 @@
     </tr>
 
     <tr>
-      <td style="background-color:#ff9499;width:100px;height:650" align="center">
+      <td style="background-color:#09ff30;width:100px;height:650" align="center">
         <b><p>菜单</p></b><br>
         <a href="/Clock/index.jsp"><p>打卡</p></a><br>
         日记<br>

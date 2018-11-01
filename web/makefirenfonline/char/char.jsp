@@ -30,7 +30,7 @@
         </tr>
         <tr>
             <td>
-                <textarea name="charInformation" cols="30" rows="10"></textarea>">
+                <textarea name="charInformation" cols="30" rows="10"></textarea>
             </td>
         </tr>
         <tr>

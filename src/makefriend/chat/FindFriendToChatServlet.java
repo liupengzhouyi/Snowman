@@ -1,4 +1,4 @@
-package makefriend.findFriend;
+package makefriend.chat;
 
 import makefriend.makefriendonline.linkDatabases;
 
@@ -10,13 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-@WebServlet(name = "ShowMyFriendServlet")
-public class ShowMyFriendServlet extends HttpServlet {
+@WebServlet(name = "FindFriendToChatServlet")
+public class FindFriendToChatServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //获取当前的Session
         HttpSession httpSession = request.getSession();
@@ -75,7 +74,7 @@ public class ShowMyFriendServlet extends HttpServlet {
                 //System.out.println(friendList.get(i));
                 out.println("<tr>\n" +
                         "        <td>" +
-                                     friendList.get(i) +
+                        "           <a href=\"/makefriend/chat/CharServlet?friend_id=" + friendList.get(i) + "\">" + friendList.get(i) + "</a>" +
                         "        </td>\n" +
                         "    </tr>");
             }

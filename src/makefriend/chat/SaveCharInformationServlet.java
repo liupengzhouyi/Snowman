@@ -25,14 +25,14 @@ public class SaveCharInformationServlet extends HttpServlet {
 
         //用户聊天数据表的构建
         //第一次
-        String sql = "insert into char_information (char_id, user_id, friend_id, text, char_data_time)" +
+        /*String sql = "insert into char_information (char_id, user_id, friend_id, text, char_data_time)" +
                 "values (1, \'" + user_id + "\', \'" + friend_id + "\', \'" + text + "\', now());";
 
-        String sqlI = "insert into char_tie(tie_id, user_id, is_new) values (1, \'" + friend_id + "\', 0);\n";
+        String sqlI = "insert into char_tie(tie_id, user_id, is_new) values (1, \'" + friend_id + "\', 0);\n";*/
         // 第二次
-        /*String sql = "insert into char_information (user_id, friend_id, text, char_data_time)" +
+        String sql = "insert into char_information (user_id, friend_id, text, char_data_time)" +
                 "values (\'" + user_id + "\', \'" + friend_id + "\', \'" + text + "\', now());";
-        String sqlI = "insert into char_tie(user_id, is_new) values (\'" + friend_id + "\', 0);\n";*/
+        String sqlI = "insert into char_tie(user_id, is_new) values (\'" + friend_id + "\', 0);\n";
 
         System.out.println(sql);
 

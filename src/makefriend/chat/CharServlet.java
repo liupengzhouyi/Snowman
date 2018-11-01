@@ -31,6 +31,8 @@ public class CharServlet extends HttpServlet {
                 response.getWriter().println("可以聊天！");
                 //确保传入的参数是正确的
                 httpSession.setAttribute("char_friend_id", friend_id);
+                //转场
+                response.sendRedirect("/makefirenfonline/char/char.jsp");
             } else {
                 //提示错误，没该好友
                 response.sendRedirect("/makefirenfonline/errorPage/char/nofriend.jsp");

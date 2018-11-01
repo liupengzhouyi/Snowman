@@ -22,20 +22,6 @@ public class SelectNewInformationServlet extends HttpServlet {
 
         String sql = "select * from char_information where friend_id = \'" + user_id + "\' and is_new = 0;";
 
-        /*-- 信息编号
-        char_id        int primary key auto_increment,
-        -- 我的编号
-        user_id        varchar(20),
-                -- 好友编号
-        friend_id      varchar(20),
-                -- 文本
-        text           varchar(200),
-                -- 日期
-        char_data_time datetime,
-        -- 是否为最新消息
-        is_new         int*/
-
-
         try {
             ArrayList<String> list = new ArrayList<String>();
 

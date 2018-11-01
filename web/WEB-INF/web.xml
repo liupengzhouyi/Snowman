@@ -391,4 +391,22 @@
         <url-pattern>/makefriend/chat/SelectNewInformationServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>outLoginServlet</servlet-name>
+        <servlet-class>makefriend.outLogin.outLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>outLoginServlet</servlet-name>
+        <url-pattern>/makefriend/outLogin/outLoginServlet</url-pattern>
+    </servlet-mapping>
+
+    <!--获取好友列表，然后转场-->
+    <servlet>
+        <servlet-name>FindFriendToChatServlet</servlet-name>
+        <servlet-class>makefriend.chat.FindFriendToChatServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindFriendToChatServlet</servlet-name>
+        <url-pattern>/makefriend/chat/FindFriendToChatServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

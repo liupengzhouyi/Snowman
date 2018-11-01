@@ -54,7 +54,7 @@ public class GetUserLoginInformationServlet extends HttpServlet {
             //如果正确， 保存Session
             this.saveSession(request, response);
             //跳转首页
-            response.sendRedirect("/index.jsp");
+            response.sendRedirect("/makefirenfonline/main/MainPage/index.jsp");
         } else {
             //如果不正确，获取错误信息
             int kind = this.getKind_of_error();

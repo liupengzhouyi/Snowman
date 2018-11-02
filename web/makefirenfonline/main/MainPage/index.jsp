@@ -34,7 +34,7 @@
     </tr>
     <tr>
         <td>
-            <a href="/makefriend.chat.FindFriendToChatServlet">聊天</a>
+            <a href="/makefriend/chat/FindFriendToChatServlet">聊天</a>
         </td>
     </tr>
     <tr>

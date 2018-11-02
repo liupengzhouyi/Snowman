@@ -44,11 +44,11 @@ public class SaveCharInformationServlet extends HttpServlet {
             this.saveData(sqlI);
         } catch (ClassNotFoundException e) {
             //数据储存出错
-
+            response.sendRedirect("");
             e.printStackTrace();
         } catch (SQLException e) {
-            //数据储存出错
-
+            //数据储存出错, 提交俩天信息学出错
+            response.sendRedirect();
             e.printStackTrace();
         }
 

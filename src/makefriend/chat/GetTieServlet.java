@@ -21,6 +21,8 @@ public class GetTieServlet extends HttpServlet {
 
         String sql = "select * from char_tie where user_id = \'" + user_id + "\';";
 
+        System.out.println(sql);
+
         int number = 0;
 
         try {
@@ -72,7 +74,7 @@ public class GetTieServlet extends HttpServlet {
             //显示提示内容
             out.println("<h1>\n" +
                     "    <center>\n" +
-                    "        您有3条新信息\n" +
+                    "        您有" + number + "条新信息\n" +
                     "    </center>\n" +
                     "</h1>\n" +
                     "<hr>\n" +

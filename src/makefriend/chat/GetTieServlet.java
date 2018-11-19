@@ -86,8 +86,6 @@ public class GetTieServlet extends HttpServlet {
         }
     }
 
-
-
     public int getNumber() {
         return number;
     }

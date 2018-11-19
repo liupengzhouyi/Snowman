@@ -21,6 +21,7 @@
     HttpSession httpSession = request.getSession();
     //获取你的用户ID
     String user_id = (String) httpSession.getAttribute("user_id");
+        System.out.println(user_id);
     //判断你的用户ID是否合法
     if(user_id == null) {
         //如果合法
@@ -57,14 +58,12 @@
         if (i == -1) {
             //没有好友
             %>
-<h1>
-    <center>
-        您没有好友，请尽快建立您的好友关系！
-    </center>
-</h1>
-<%
-            /*PrintWriter out = response.getWriter();
-            out.println("");*/
+            <h1>
+                <center>
+                    您没有好友，请尽快建立您的好友关系！
+                </center>
+            </h1>
+            <%
         } else {
             //拥有好友
 
@@ -75,9 +74,5 @@
         response.sendRedirect("/makefirenfonline/errorPage/login/errorForAddFriend.jsp");
     }
 %>
-    <table>
-
-    </table>
-
 </body>
 </html>

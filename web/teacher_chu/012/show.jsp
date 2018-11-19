@@ -1,27 +1,24 @@
 <%--
   Created by IntelliJ IDEA.
   User: liupeng
-  Date: 2018/11/2
-  Time: 5:50 PM
+  Date: 2018/11/19
+  Time: 3:17 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>提交俩天信息学出错</title>
+    <title>显示用户信息</title>
 </head>
 <body>
+<%
+    HttpSession httpSession = request.getSession();
+    String user_id = (String) httpSession.getAttribute("user_id");
+%>
 <h1>
     <center>
-        提交俩天信息学出错
+        你好：<%=user_id%>
     </center>
 </h1>
-<hr>
-<h3>
-    <center>
-        <a href="/makefirenfonline/contactUs/yourProblem.jsp">联系我们</a>
-    </center>
-</h3>
 </body>
 </html>
-

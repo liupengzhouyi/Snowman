@@ -409,4 +409,24 @@
         <servlet-name>FindFriendToChatServlet</servlet-name>
         <url-pattern>/makefriend/chat/FindFriendToChatServlet</url-pattern>
     </servlet-mapping>
+
+    <!--褚老师的实验12-关于Session-->
+    <servlet>
+        <servlet-name>TeacherChuWork12Servlet</servlet-name>
+        <servlet-class>teacher_chu.work012.TeacherChuWork12Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TeacherChuWork12Servlet</servlet-name>
+        <url-pattern>/teacher_chu/work012/TeacherChuWork12Servlet</url-pattern>
+    </servlet-mapping>
+
+    <!--获取用户登录信息-->
+    <servlet>
+        <servlet-name>GetUserIDAndPasswordInformationServlet</servlet-name>
+        <servlet-class>teacher_chu.work012.GetUserIDAndPasswordInformationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetUserIDAndPasswordInformationServlet</servlet-name>
+        <url-pattern>/teacher_chu/work012/GetUserIDAndPasswordInformationServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

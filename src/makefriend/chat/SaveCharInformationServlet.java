@@ -25,16 +25,18 @@ public class SaveCharInformationServlet extends HttpServlet {
 
         //用户聊天数据表的构建
         //第一次
-        /*String sql = "insert into char_information (char_id, user_id, friend_id, text, char_data_time)" +
-                "values (1, \'" + user_id + "\', \'" + friend_id + "\', \'" + text + "\', now());";
+        /*String sql = "insert into char_information (char_id, user_id, friend_id, text, char_data_time, is_new)" +
+                " values (1, \'" + user_id + "\', \'" + friend_id + "\', \'" + text + "\', now());";
 
         String sqlI = "insert into char_tie(tie_id, user_id, is_new) values (1, \'" + friend_id + "\', 0);\n";*/
         // 第二次
-        String sql = "insert into char_information (user_id, friend_id, text, char_data_time)" +
-                "values (\'" + user_id + "\', \'" + friend_id + "\', \'" + text + "\', now());";
-        String sqlI = "insert into char_tie(user_id, is_new) values (\'" + friend_id + "\', 0);\n";
+        String sql = "insert into char_information(user_id, friend_id, text, char_data_time, is_new) " +
+                "values (\'" + user_id + "\', \'" + friend_id + "\', \'" + text + "\', now(), 1);";
+        String sqlI = "insert into char_tie(user_id, is_new) values (\'" + friend_id + "\', 1);\n";
 
         System.out.println(sql);
+
+        System.out.println(sqlI);
 
         //数据储存
         try {
@@ -44,11 +46,11 @@ public class SaveCharInformationServlet extends HttpServlet {
             this.saveData(sqlI);
         } catch (ClassNotFoundException e) {
             //数据储存出错
-            response.sendRedirect("");
+            response.sendRedirect("/makefirenfonline/errorPage/char/saveInformationError.jsp");
             e.printStackTrace();
         } catch (SQLException e) {
             //数据储存出错, 提交俩天信息学出错
-            response.sendRedirect();
+            response.sendRedirect("/makefirenfonline/errorPage/char/saveInformationError.jsp");
             e.printStackTrace();
         }
 

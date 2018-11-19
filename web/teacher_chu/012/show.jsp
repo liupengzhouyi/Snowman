@@ -20,5 +20,13 @@
         你好：<%=user_id%>
     </center>
 </h1>
+<hr>
+<h2>
+    <center>
+        <a href="/teacher_chu/work013/ShowGoodsServlet">
+            欢迎把你的钱变成我的钱！
+        </a>
+    </center>
+</h2>
 </body>
 </html>

@@ -35,6 +35,32 @@
             </th>
         </tr>
     </table>
+
+    <form action="" method="">
+        <table border="1">
+            <tr>
+                商品列表
+            </tr>
+            <tr>
+                <th>
+                    商品名称
+                </th>
+                <td>
+                    商品价格
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="/teacher_chu/013/TheOrderPage.jsp?goodid=">
+
+                    </a>
+                </td>
+                <td>
+
+                </td>
+            </tr>
+        </table>
+    </form>
 </form>
 </body>
 </html>

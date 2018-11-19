@@ -1,4 +1,5 @@
-<%@ page import="teacher_chu.work013.getGoodNameAndMoney" %><%--
+<%@ page import="teacher_chu.work013.getGoodNameAndMoney" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: liupeng
   Date: 2018/11/19
@@ -18,6 +19,7 @@
         getGoodNameAndMoney lpGetGoodNameAndMoney = new getGoodNameAndMoney(good_id);
         String good_name = lpGetGoodNameAndMoney.getGood_name();
         int money = lpGetGoodNameAndMoney.getMoney();
+        String string = "/teacher_chu/013/img/00" + good_id + ".png";
     %>
     <div>
         <center>
@@ -38,7 +40,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <img src="/teacher_chu/013/img/001.png" widht="300" height="100">
+                            <img src="<%=string%>" widht="300" height="100">
                         </td>
                         <td>
                             <input type="number" name="number">

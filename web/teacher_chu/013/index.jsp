@@ -11,7 +11,7 @@
     <title>登录</title>
 </head>
 <body>
-<form action="/teacher_chu/work013/GetUserIDAndPasswordInformationServlet" method="post">
+<form action="/teacher_chu/work012/GetUserIDAndPasswordInformationServlet" method="post">
     <table>
         <tr>
             <th colspan="2">
@@ -34,33 +34,15 @@
                 <input type="password" name="user_id">
             </th>
         </tr>
+        <tr>
+            <td>
+                <input type="reset" value="重置">
+            </td>
+            <td>
+                <input type="submit" value="提交">
+            </td>
+        </tr>
     </table>
-
-    <form action="" method="">
-        <table border="1">
-            <tr>
-                商品列表
-            </tr>
-            <tr>
-                <th>
-                    商品名称
-                </th>
-                <td>
-                    商品价格
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="/teacher_chu/013/TheOrderPage.jsp?goodid=">
-
-                    </a>
-                </td>
-                <td>
-
-                </td>
-            </tr>
-        </table>
-    </form>
 </form>
 </body>
 </html>

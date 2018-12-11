@@ -449,4 +449,32 @@
         <servlet-name>SaveTeacherChuOrderServlet</servlet-name>
         <url-pattern>/teacher_chu/work013/SaveTeacherChuOrderServlet</url-pattern>
     </servlet-mapping>
+
+    <!--获取所有的留言信息-->
+    <servlet>
+        <servlet-name>GetYourGuestServlet</servlet-name>
+        <servlet-class>teacher_chu.work015.GetYourGuestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetYourGuestServlet</servlet-name>
+        <url-pattern>/teacher_chu/work015/GetYourGuestServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetGuestBookServlet</servlet-name>
+        <servlet-class>teacher_chu.work016.Controller.GetGuestBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetGuestBookServlet</servlet-name>
+        <url-pattern>/teacher_chu/work016/Controller/GetGuestBookServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetInputGeastBookInformationServlet</servlet-name>
+        <servlet-class>teacher_chu.work016.Controller.GetInputGeastBookInformationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetInputGeastBookInformationServlet</servlet-name>
+        <url-pattern>/teacher_chu/work016/Controller/GetInputGeastBookInformationServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
